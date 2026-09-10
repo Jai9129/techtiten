@@ -18,9 +18,238 @@
 <body class="jic-body">
 
   <!-- ==========================================================================
-       Main Layout: Sidebar + Canvas (Clean Hostinger-Style Full Height)
+       1. MAIN LANDING PORTAL GATEWAY (Citizen Portal vs Government Portal)
        ========================================================================== -->
-  <div class="jic-layout-container">
+  <div class="jic-landing-portal-gate" id="jicLandingPortalGate">
+    <div class="landing-bg-glow"></div>
+    <div class="landing-grid-backdrop"></div>
+
+    <div class="landing-content-wrap">
+      <!-- State / Platform Top Badge -->
+      <header class="landing-header">
+        <div class="landing-gov-badge">
+          <span class="gov-emblem-icon">🏛️</span>
+          <span>Government of Jharkhand &bull; Higher & Technical Education &bull; SIH 2026 (#26043)</span>
+        </div>
+        <h1 class="landing-main-title">Jharkhand Innovation Connect</h1>
+        <p class="landing-main-sub">State-wide AI-orchestrated problem resolution & governance platform bridging citizens, universities, and district administrations.</p>
+      </header>
+
+      <!-- 2 Core Portal Cards Grid -->
+      <div class="portal-selection-grid">
+        
+        <!-- CARD 1: CITIZEN & INNOVATOR PORTAL -->
+        <div class="portal-card citizen-portal-card" id="cardCitizenPortal">
+          <div class="portal-card-glow"></div>
+          <div class="portal-card-top">
+            <div class="portal-icon-pill">
+              <i class="fi fi-sr-user"></i>
+            </div>
+            <span class="portal-type-badge">PUBLIC ACCESS</span>
+          </div>
+
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Citizen & Innovator Portal</h2>
+            <p class="portal-card-desc">For Citizens, Students, Researchers, Innovators, Startups & Industry CSR partners across Jharkhand.</p>
+            
+            <ul class="portal-features-list">
+              <li><i class="fi fi-rr-check"></i> Submit grassroots ward / village challenges with photos & GPS</li>
+              <li><i class="fi fi-rr-check"></i> University R&D workspace with live Academic ABC Credits</li>
+              <li><i class="fi fi-rr-check"></i> Industry CSR grants & problem adoption marketplace</li>
+              <li><i class="fi fi-rr-check"></i> Explore 180+ deployed solutions & live project milestones</li>
+            </ul>
+          </div>
+
+          <div class="portal-card-actions">
+            <button class="portal-btn portal-btn-primary" onclick="openAuthModal('citizen', 'login')">
+              <i class="fi fi-sr-sign-in-alt"></i>
+              <span>Citizen / Student Login</span>
+            </button>
+            <button class="portal-btn portal-btn-secondary" onclick="openAuthModal('citizen', 'register')">
+              <i class="fi fi-sr-user-add"></i>
+              <span>New Registration</span>
+            </button>
+          </div>
+
+          <div class="portal-quick-demo">
+            <span>Quick Test:</span>
+            <a href="javascript:void(0)" onclick="quickDemoLogin('citizen')">⚡ Demo Student Innovator (BIT Mesra)</a>
+          </div>
+        </div>
+
+        <!-- CARD 2: GOVERNMENT & DISTRICT PORTAL -->
+        <div class="portal-card gov-portal-card" id="cardGovPortal">
+          <div class="portal-card-glow"></div>
+          <div class="portal-card-top">
+            <div class="portal-icon-pill gov-pill">
+              <i class="fi fi-sr-shield-check"></i>
+            </div>
+            <span class="portal-type-badge gov-badge">OFFICIAL / ADMIN</span>
+          </div>
+
+          <div class="portal-card-body">
+            <h2 class="portal-card-title">Government & Admin Portal</h2>
+            <p class="portal-card-desc">For District Magistrates (DM/DC), Department Officials, BDOs, and State Evaluation Officers.</p>
+            
+            <ul class="portal-features-list">
+              <li><i class="fi fi-rr-check"></i> 24-District Performance Heatmap (Ranchi, Dhanbad, Bokaro...)</li>
+              <li><i class="fi fi-rr-check"></i> Review & validate incoming problem statements with AI triage</li>
+              <li><i class="fi fi-rr-check"></i> Higher education institutional rankings & patent tracking</li>
+              <li><i class="fi fi-rr-check"></i> Allocate department grants & field verification sign-offs</li>
+            </ul>
+          </div>
+
+          <div class="portal-card-actions">
+            <button class="portal-btn portal-btn-primary" onclick="openAuthModal('gov', 'login')">
+              <i class="fi fi-sr-shield-check"></i>
+              <span>Official / Officer Login</span>
+            </button>
+            <button class="portal-btn portal-btn-secondary" onclick="openAuthModal('gov', 'register')">
+              <i class="fi fi-sr-add-document"></i>
+              <span>Officer Onboarding</span>
+            </button>
+          </div>
+
+          <div class="portal-quick-demo">
+            <span>Quick Test:</span>
+            <a href="javascript:void(0)" onclick="quickDemoLogin('gov')">⚡ Demo District Admin (Ranchi DC)</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Trust Badges -->
+      <footer class="landing-footer">
+        <div class="trust-badge-item">
+          <i class="fi fi-sr-users-alt"></i>
+          <span>3.85 Cr Citizens Supported</span>
+        </div>
+        <div class="trust-badge-divider">&bull;</div>
+        <div class="trust-badge-item">
+          <i class="fi fi-sr-graduation-cap"></i>
+          <span>84 Higher Education Institutes</span>
+        </div>
+        <div class="trust-badge-divider">&bull;</div>
+        <div class="trust-badge-item">
+          <i class="fi fi-sr-map-marker"></i>
+          <span>24 Districts Synchronized</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. UNIVERSAL AUTHENTICATION MODAL (Login & Register System)
+       ========================================================================== -->
+  <div class="jic-auth-modal-overlay" id="jicAuthModal">
+    <div class="auth-modal-card" id="authModalCard">
+      <button class="auth-modal-close" onclick="closeAuthModal()" aria-label="Close Authentication Dialog">&times;</button>
+      
+      <!-- Modal Header -->
+      <div class="auth-modal-header">
+        <div class="auth-portal-badge" id="authPortalBadge">Citizen Portal</div>
+        <h3 class="auth-modal-title" id="authModalTitle">Sign in to your account</h3>
+        <p class="auth-modal-sub" id="authModalSub">Access personalized innovation workspace & challenges</p>
+      </div>
+
+      <!-- Login / Register Tab Switcher -->
+      <div class="auth-tabs-nav">
+        <button class="auth-tab-btn active" id="authTabLogin" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab-btn" id="authTabRegister" onclick="switchAuthTab('register')">Create Account</button>
+      </div>
+
+      <!-- Auth Form -->
+      <form class="auth-form" id="jicAuthForm" onsubmit="handleAuthSubmit(event)">
+        
+        <!-- Field: Full Name (Register Only) -->
+        <div class="form-group register-only-field" id="fgFullName" style="display: none;">
+          <label class="form-label">Full Name / Officer Name</label>
+          <div class="input-with-icon">
+            <i class="fi fi-rr-user"></i>
+            <input type="text" class="form-input" id="authFullName" placeholder="e.g. Harshita NM or Dr. Rajan Verma">
+          </div>
+        </div>
+
+        <!-- Field: User Category / Department (Register Only) -->
+        <div class="form-group register-only-field" id="fgRoleSelect" style="display: none;">
+          <label class="form-label" id="authRoleLabel">Account Category</label>
+          <div class="input-with-icon">
+            <i class="fi fi-rr-briefcase"></i>
+            <select class="form-input" id="authRoleSelect">
+              <option value="student">Student Innovator (University / College)</option>
+              <option value="citizen">Citizen / Resident of Jharkhand</option>
+              <option value="faculty">Faculty / Researcher</option>
+              <option value="industry">Industry CSR Representative</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Field: District (Register Only) -->
+        <div class="form-group register-only-field" id="fgDistrict" style="display: none;">
+          <label class="form-label">Assigned District / Location</label>
+          <div class="input-with-icon">
+            <i class="fi fi-rr-marker"></i>
+            <select class="form-input" id="authDistrict">
+              <option value="Ranchi">Ranchi (State Capital)</option>
+              <option value="Dhanbad">Dhanbad</option>
+              <option value="Bokaro">Bokaro</option>
+              <option value="East Singhbhum">East Singhbhum (Jamshedpur)</option>
+              <option value="Hazaribagh">Hazaribagh</option>
+              <option value="Giridih">Giridih</option>
+              <option value="Deoghar">Deoghar</option>
+              <option value="Dumka">Dumka</option>
+              <option value="Palamu">Palamu</option>
+              <option value="Latehar">Latehar</option>
+              <option value="Khunti">Khunti</option>
+              <option value="Simdega">Simdega</option>
+              <option value="Pakur">Pakur</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Field: Email / ID -->
+        <div class="form-group">
+          <label class="form-label" id="authEmailLabel">Email Address / User ID</label>
+          <div class="input-with-icon">
+            <i class="fi fi-rr-envelope"></i>
+            <input type="text" class="form-input" id="authEmail" placeholder="name@domain.edu.in or @jharkhand.gov.in" required>
+          </div>
+        </div>
+
+        <!-- Field: Password -->
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-with-icon">
+            <i class="fi fi-rr-lock"></i>
+            <input type="password" class="form-input" id="authPassword" placeholder="••••••••" required>
+          </div>
+        </div>
+
+        <!-- Demo Autofill Helper -->
+        <div class="auth-demo-shortcut">
+          <button type="button" class="btn-demo-autofill" onclick="autofillDemoAuth()">
+            <span>⚡ Use Demo Credentials</span>
+          </button>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="auth-submit-btn" id="authSubmitBtn">
+          <span id="authSubmitText">Sign In to Citizen Portal</span>
+          <i class="fi fi-sr-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-modal-footer">
+        <span id="authToggleHint">Don't have an account?</span>
+        <a href="javascript:void(0)" id="authToggleLink" onclick="toggleAuthMode()">Register here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       3. Main App Layout: Sidebar + Canvas (Shown After Login)
+       ========================================================================== -->
+  <div class="jic-layout-container" id="jicMainLayout">
     
     <!-- LEFT SIDEBAR -->
     <aside class="jic-sidebar" id="appSidebar">
@@ -103,15 +332,15 @@
         </a>
       </nav>
 
-      <!-- Sidebar Bottom Citizen Card -->
+      <!-- Sidebar Bottom Profile Card & Portal Switcher -->
       <div class="sidebar-user-footer">
-        <div class="citizen-avatar">HA</div>
+        <div class="citizen-avatar" id="sidebarUserAvatar">HA</div>
         <div class="citizen-info">
-          <h4>Harshita NM</h4>
-          <p>Citizen &bull; Ranchi</p>
+          <h4 id="sidebarUserName">Harshita NM</h4>
+          <p id="sidebarUserRole">Citizen &bull; Ranchi</p>
         </div>
-        <button class="user-action-dots" onclick="showToast('Citizen Account Verified &bull; Ranchi Ward #14')" title="Account Info">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+        <button class="user-switch-portal-btn" onclick="logoutToLanding()" title="Switch Portal / Logout">
+          <i class="fi fi-rr-exit"></i>
         </button>
       </div>
     </aside>
@@ -132,11 +361,18 @@
         </div>
 
         <div class="header-right-actions">
+          <!-- Active Portal Badge Indicator -->
+          <div class="active-portal-tag" id="activePortalTag" onclick="logoutToLanding()" title="Click to switch portal">
+            <span class="portal-tag-dot"></span>
+            <span id="activePortalTagText">Citizen Portal</span>
+            <i class="fi fi-rr-arrows-repeat"></i>
+          </div>
+
           <div class="ai-active-pill inline">
             <span class="pulse-dot"></span>
             <span>AI Active</span>
           </div>
-          <div class="user-avatar-badge" title="Profile: Rajesh Kumar">RK</div>
+          <div class="user-avatar-badge" id="headerUserBadge" onclick="logoutToLanding()" title="Click to Switch Portal / Logout">HA</div>
         </div>
       </div>
 
