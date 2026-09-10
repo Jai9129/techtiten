@@ -3,6 +3,235 @@
  * Team Techtiten Application Controller
  */
 
+/* ==========================================================================
+   0. Portal Gateway & Universal Authentication System (Citizen vs Government)
+   ========================================================================== */
+let currentPortalContext = 'citizen'; // 'citizen' | 'gov'
+let currentAuthMode = 'login'; // 'login' | 'register'
+let currentUser = {
+  name: 'Harshita NM',
+  role: 'student',
+  roleLabel: 'Student Innovator',
+  portal: 'citizen',
+  affiliation: 'BIT Mesra',
+  district: 'Ranchi',
+  email: 'harshita.nm@bitmesra.edu.in'
+};
+
+window.openAuthModal = function(portalType, mode = 'login') {
+  currentPortalContext = portalType || 'citizen';
+  currentAuthMode = mode || 'login';
+
+  const modal = document.getElementById('jicAuthModal');
+  const badge = document.getElementById('authPortalBadge');
+  const title = document.getElementById('authModalTitle');
+  const sub = document.getElementById('authModalSub');
+  const emailLabel = document.getElementById('authEmailLabel');
+  const emailInput = document.getElementById('authEmail');
+  const roleLabel = document.getElementById('authRoleLabel');
+  const roleSelect = document.getElementById('authRoleSelect');
+
+  if (currentPortalContext === 'gov') {
+    if (badge) {
+      badge.textContent = 'Government & Official Portal';
+      badge.style.background = '#FFFFFF';
+      badge.style.color = '#000000';
+    }
+    if (emailLabel) emailLabel.textContent = 'Official Govt Email (@jharkhand.gov.in)';
+    if (emailInput) emailInput.placeholder = 'officer.name@jharkhand.gov.in';
+    if (roleLabel) roleLabel.textContent = 'Government Department / Role';
+    if (roleSelect) {
+      roleSelect.innerHTML = `
+        <option value="dm">District Magistrate (DM / DC Office)</option>
+        <option value="urban">Urban Development & Housing Dept</option>
+        <option value="agri">Agriculture & Tribal Welfare Dept</option>
+        <option value="higher_edu">Higher & Technical Education Officer</option>
+        <option value="mining">Mining & Environmental Safety Board</option>
+      `;
+    }
+  } else {
+    if (badge) {
+      badge.textContent = 'Citizen & Innovator Portal';
+      badge.style.background = '#1F1F26';
+      badge.style.color = '#FFFFFF';
+    }
+    if (emailLabel) emailLabel.textContent = 'Email Address / Mobile Number';
+    if (emailInput) emailInput.placeholder = 'name@bitmesra.edu.in or citizen@gmail.com';
+    if (roleLabel) roleLabel.textContent = 'Account Category';
+    if (roleSelect) {
+      roleSelect.innerHTML = `
+        <option value="student">Student Innovator (University / College)</option>
+        <option value="citizen">Citizen / Resident of Jharkhand</option>
+        <option value="faculty">Faculty / Researcher</option>
+        <option value="industry">Industry CSR Representative</option>
+      `;
+    }
+  }
+
+  switchAuthTab(currentAuthMode);
+  if (modal) modal.classList.add('show');
+};
+
+window.closeAuthModal = function() {
+  const modal = document.getElementById('jicAuthModal');
+  if (modal) modal.classList.remove('show');
+};
+
+window.switchAuthTab = function(mode) {
+  currentAuthMode = mode;
+  const tabLogin = document.getElementById('authTabLogin');
+  const tabRegister = document.getElementById('authTabRegister');
+  const registerFields = document.querySelectorAll('.register-only-field');
+  const submitText = document.getElementById('authSubmitText');
+  const modalTitle = document.getElementById('authModalTitle');
+  const modalSub = document.getElementById('authModalSub');
+  const toggleHint = document.getElementById('authToggleHint');
+  const toggleLink = document.getElementById('authToggleLink');
+
+  if (mode === 'register') {
+    if (tabLogin) tabLogin.classList.remove('active');
+    if (tabRegister) tabRegister.classList.add('active');
+    registerFields.forEach(f => f.style.display = 'flex');
+    if (modalTitle) modalTitle.textContent = currentPortalContext === 'gov' ? 'Officer Onboarding Registration' : 'Create Innovator Account';
+    if (modalSub) modalSub.textContent = 'Join Jharkhand Innovation Connect Platform';
+    if (submitText) submitText.textContent = currentPortalContext === 'gov' ? 'Complete Officer Registration' : 'Create Account & Enter Platform';
+    if (toggleHint) toggleHint.textContent = 'Already have an account?';
+    if (toggleLink) toggleLink.textContent = 'Sign in here';
+  } else {
+    if (tabLogin) tabLogin.classList.add('active');
+    if (tabRegister) tabRegister.classList.remove('active');
+    registerFields.forEach(f => f.style.display = 'none');
+    if (modalTitle) modalTitle.textContent = currentPortalContext === 'gov' ? 'Sign in to Government Console' : 'Sign in to Citizen Portal';
+    if (modalSub) modalSub.textContent = 'Access personalized innovation workspace & challenges';
+    if (submitText) submitText.textContent = currentPortalContext === 'gov' ? 'Sign In as Officer' : 'Sign In to Citizen Portal';
+    if (toggleHint) toggleHint.textContent = "Don't have an account?";
+    if (toggleLink) toggleLink.textContent = 'Register here';
+  }
+};
+
+window.toggleAuthMode = function() {
+  switchAuthTab(currentAuthMode === 'login' ? 'register' : 'login');
+};
+
+window.autofillDemoAuth = function() {
+  const emailInput = document.getElementById('authEmail');
+  const passInput = document.getElementById('authPassword');
+  const nameInput = document.getElementById('authFullName');
+  const distSelect = document.getElementById('authDistrict');
+
+  if (currentPortalContext === 'gov') {
+    if (emailInput) emailInput.value = 'rajan.verma@jharkhand.gov.in';
+    if (passInput) passInput.value = 'JharkhandGov@2026';
+    if (nameInput) nameInput.value = 'Dr. Rajan Verma';
+    if (distSelect) distSelect.value = 'Ranchi';
+  } else {
+    if (emailInput) emailInput.value = 'harshita.nm@bitmesra.edu.in';
+    if (passInput) passInput.value = 'Innovator@2026';
+    if (nameInput) nameInput.value = 'Harshita NM';
+    if (distSelect) distSelect.value = 'Ranchi';
+  }
+  showToast(`Autofilled demo credentials for ${currentPortalContext === 'gov' ? 'District Officer' : 'Student Innovator'}`);
+};
+
+window.quickDemoLogin = function(portalType) {
+  currentPortalContext = portalType || 'citizen';
+  if (currentPortalContext === 'gov') {
+    currentUser = {
+      name: 'Dr. Rajan Verma',
+      role: 'dm',
+      roleLabel: 'District Magistrate',
+      portal: 'gov',
+      affiliation: 'Ranchi DC Office & Urban Dev',
+      district: 'Ranchi',
+      email: 'rajan.verma@jharkhand.gov.in'
+    };
+  } else {
+    currentUser = {
+      name: 'Harshita NM',
+      role: 'student',
+      roleLabel: 'Student Innovator',
+      portal: 'citizen',
+      affiliation: 'BIT Mesra',
+      district: 'Ranchi',
+      email: 'harshita.nm@bitmesra.edu.in'
+    };
+  }
+
+  applyUserSession(currentUser);
+  const gate = document.getElementById('jicLandingPortalGate');
+  if (gate) gate.classList.add('hidden');
+
+  // Navigate to initial view
+  if (currentPortalContext === 'gov') {
+    navigateToView('gov-analytics');
+  } else {
+    navigateToView('dashboard');
+  }
+
+  showToast(`Logged in successfully to ${currentPortalContext === 'gov' ? 'Government Admin Portal' : 'Citizen & Innovator Portal'} as ${currentUser.name}`);
+};
+
+window.handleAuthSubmit = function(event) {
+  event.preventDefault();
+  const emailInput = document.getElementById('authEmail')?.value || 'user@jharkhand.gov.in';
+  const nameInput = document.getElementById('authFullName')?.value || (currentPortalContext === 'gov' ? 'Dr. Rajan Verma' : 'Harshita NM');
+  const district = document.getElementById('authDistrict')?.value || 'Ranchi';
+
+  currentUser = {
+    name: nameInput,
+    role: currentPortalContext === 'gov' ? 'Official' : 'Innovator',
+    roleLabel: currentPortalContext === 'gov' ? 'Gov. Official' : 'Citizen / Student',
+    portal: currentPortalContext,
+    affiliation: currentPortalContext === 'gov' ? `${district} DC Admin Console` : `University / Ward #${district}`,
+    district: district,
+    email: emailInput
+  };
+
+  applyUserSession(currentUser);
+  closeAuthModal();
+
+  const gate = document.getElementById('jicLandingPortalGate');
+  if (gate) gate.classList.add('hidden');
+
+  if (currentPortalContext === 'gov') {
+    navigateToView('gov-analytics');
+  } else {
+    navigateToView('dashboard');
+  }
+
+  showToast(`Welcome ${currentUser.name}! Logged into ${currentPortalContext === 'gov' ? 'Government & District Console' : 'Citizen & Innovator Portal'}`);
+};
+
+window.logoutToLanding = function() {
+  const gate = document.getElementById('jicLandingPortalGate');
+  if (gate) gate.classList.remove('hidden');
+  showToast('Logged out to Main Platform Gateway. Select a Portal to re-enter.');
+};
+
+function applyUserSession(user) {
+  const sidebarAvatar = document.getElementById('sidebarUserAvatar');
+  const sidebarName = document.getElementById('sidebarUserName');
+  const sidebarRole = document.getElementById('sidebarUserRole');
+  const headerBadge = document.getElementById('headerUserBadge');
+  const activePortalTagText = document.getElementById('activePortalTagText');
+  const activePortalTag = document.getElementById('activePortalTag');
+
+  const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'HA';
+
+  if (sidebarAvatar) sidebarAvatar.textContent = initials;
+  if (headerBadge) headerBadge.textContent = initials;
+  if (sidebarName) sidebarName.textContent = user.name;
+  if (sidebarRole) sidebarRole.textContent = `${user.roleLabel} • ${user.district}`;
+
+  if (activePortalTagText) {
+    activePortalTagText.textContent = user.portal === 'gov' ? 'Gov Admin Portal' : 'Citizen Portal';
+  }
+
+  if (activePortalTag) {
+    activePortalTag.style.borderColor = user.portal === 'gov' ? '#FFFFFF' : 'var(--border-light)';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initChallengesData();
