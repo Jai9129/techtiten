@@ -79,6 +79,587 @@ html, body {
 }
 
 /* ==========================================================================
+   0. LANDING PORTAL GATEWAY (Citizen vs Government Portal Entry)
+   ========================================================================== */
+.jic-landing-portal-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #08080A;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+}
+
+.jic-landing-portal-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.landing-bg-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(16, 185, 129, 0.03) 40%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.landing-grid-backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.landing-content-wrap {
+  width: 100%;
+  max-width: 1140px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin: auto;
+}
+
+.landing-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.landing-gov-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #141418;
+  border: 1px solid var(--border-light);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #D4D4D8;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.gov-emblem-icon {
+  font-size: 0.95rem;
+}
+
+.landing-main-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.landing-main-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 2 Portal Selection Cards Grid */
+.portal-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.portal-card {
+  position: relative;
+  background: #0F0F13;
+  border: 1.5px solid #222228;
+  border-radius: 22px;
+  padding: 34px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.portal-card:hover {
+  background: #131318;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+.portal-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portal-icon-pill {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #1C1C22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: #FFFFFF;
+}
+
+.portal-icon-pill.gov-pill {
+  background: #18181E;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.portal-type-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: #1E1E24;
+  color: #D4D4D8;
+  border: 1px solid var(--border-light);
+}
+
+.portal-type-badge.gov-badge {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+
+.portal-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 12px 0 8px 0;
+}
+
+.portal-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.portal-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portal-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: #D4D4D8;
+  line-height: 1.4;
+}
+
+.portal-features-list li i {
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.portal-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.portal-btn {
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.18s ease;
+  text-decoration: none;
+}
+
+.portal-btn-primary {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+
+.portal-btn-primary:hover {
+  background: #E4E4E7;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+.portal-btn-secondary {
+  background: #18181D;
+  color: #FFFFFF;
+  border: 1px solid #33333A;
+}
+
+.portal-btn-secondary:hover {
+  background: #24242B;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.portal-quick-demo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+}
+
+.portal-quick-demo a {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: opacity 0.15s ease;
+}
+
+.portal-quick-demo a:hover {
+  opacity: 0.8;
+}
+
+/* Landing Trust Footer */
+.landing-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  padding-top: 10px;
+}
+
+.trust-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-badge-item i {
+  color: #FFFFFF;
+}
+
+.trust-badge-divider {
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   0.1 UNIVERSAL AUTHENTICATION MODAL
+   ========================================================================== */
+.jic-auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jic-auth-modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-modal-card {
+  width: 100%;
+  max-width: 460px;
+  background: #111115;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 32px 30px;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jic-auth-modal-overlay.show .auth-modal-card {
+  transform: scale(1);
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.auth-modal-close:hover {
+  color: #FFFFFF;
+}
+
+.auth-modal-header {
+  margin-bottom: 20px;
+}
+
+.auth-portal-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: #1F1F26;
+  color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  margin-bottom: 10px;
+}
+
+.auth-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.auth-modal-sub {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.auth-tabs-nav {
+  display: flex;
+  background: #18181D;
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  gap: 4px;
+  margin-bottom: 22px;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.auth-tab-btn.active {
+  background: #FFFFFF;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #E4E4E7;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon i {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.input-with-icon .form-input {
+  width: 100%;
+  background: #17171C;
+  border: 1px solid #2C2C34;
+  border-radius: 10px;
+  padding: 11px 14px 11px 40px;
+  font-size: 0.88rem;
+  color: #FFFFFF;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-with-icon .form-input:focus {
+  outline: none;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.auth-demo-shortcut {
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.btn-demo-autofill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: #E4E4E7;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+
+.btn-demo-autofill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  background: #FFFFFF;
+  color: #000000;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18);
+  margin-top: 6px;
+}
+
+.auth-submit-btn:hover {
+  background: #E4E4E7;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.28);
+}
+
+.auth-modal-footer {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 18px;
+}
+
+.auth-modal-footer a {
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+
+/* User Switch Portal Controls in Sidebar/Header */
+.user-switch-portal-btn {
+  background: #1E1E24;
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.user-switch-portal-btn:hover {
+  background: #2E2E38;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.active-portal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #18181D;
+  border: 1px solid var(--border-light);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.active-portal-tag:hover {
+  background: #27272E;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.portal-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 6px #FFFFFF;
+}
+
+.active-portal-tag i {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
    1. Layout Structure: Sidebar + Main Canvas (Clean Full Height 100vh)
    ========================================================================== */
 .jic-layout-container {
