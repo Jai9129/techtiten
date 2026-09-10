@@ -48,6 +48,12 @@
         </nav>
 
         <div class="nav-actions">
+          <!-- Sun / Moon Theme Toggle Button -->
+          <button class="theme-toggle-btn" id="landingThemeToggleBtn" onclick="toggleTheme()" title="Switch Light / Dark Theme" aria-label="Toggle Theme">
+            <i class="fi fi-sr-sun theme-icon-sun"></i>
+            <i class="fi fi-sr-moon theme-icon-moon"></i>
+          </button>
+
           <div class="nav-login-dropdown">
             <button class="nav-btn nav-btn-primary" onclick="openAuthModal('citizen', 'login')">
               <i class="fi fi-sr-sign-in-alt"></i>
@@ -656,6 +662,12 @@
         </div>
 
         <div class="header-right-actions">
+          <!-- Sun / Moon Theme Toggle Button -->
+          <button class="theme-toggle-btn app-theme-btn" id="appThemeToggleBtn" onclick="toggleTheme()" title="Switch Light / Dark Theme" aria-label="Toggle Theme">
+            <i class="fi fi-sr-sun theme-icon-sun"></i>
+            <i class="fi fi-sr-moon theme-icon-moon"></i>
+          </button>
+
           <!-- Active Portal Badge Indicator -->
           <div class="active-portal-tag" id="activePortalTag" onclick="logoutToLanding()" title="Click to switch portal">
             <span class="portal-tag-dot"></span>
