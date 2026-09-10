@@ -232,7 +232,53 @@ function applyUserSession(user) {
   }
 }
 
+function initLandingWebsite() {
+  const gate = document.getElementById('jicLandingPortalGate');
+  if (!gate) return;
+
+  const navLinks = document.querySelectorAll('.site-navbar .nav-link');
+  const sections = ['hero', 'about', 'portals', 'workflow', 'impact', 'universities'];
+
+  gate.addEventListener('scroll', () => {
+    const scrollPos = gate.scrollTop + 180;
+    
+    sections.forEach(secId => {
+      const el = document.getElementById(secId);
+      if (el) {
+        const top = el.offsetTop;
+        const height = el.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${secId}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      }
+    });
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href')?.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        gate.scrollTo({
+          top: targetEl.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLandingWebsite();
   initNavigation();
   initChallengesData();
   initExplorerMasterList();
