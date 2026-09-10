@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JIC | Jharkhand Innovation Connect Platform — SIH 2026 (#26043)</title>
+  <meta name="description" content="AI-powered ecosystem connecting citizens, universities, industry and government to solve Jharkhand's most pressing challenges. Team Techtiten - Smart India Hackathon 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111827'><circle cx='12' cy='12' r='10'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Flaticon UIcons (Solid Rounded & Regular Rounded) -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="jic-body">
+
+  <!-- ==========================================================================
+       Main Layout: Sidebar + Canvas (Clean Hostinger-Style Full Height)
+       ========================================================================== -->
+  <div class="jic-layout-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="jic-sidebar" id="appSidebar">
+      <div class="sidebar-brand">
+        <div class="brand-starburst-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.5-6.5-2.1 2.1m-8.8 8.8-2.1 2.1m0-13 2.1 2.1m8.8 8.8 2.1 2.1"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <h3>JIC</h3>
+          <span>Innovation Connect</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- Section: PLATFORM -->
+        <div class="sidebar-section-label">PLATFORM</div>
+
+        <a href="#dashboard" class="sidebar-link active" data-view="dashboard">
+          <i class="fi fi-sr-apps"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#submit-challenge" class="sidebar-link" data-view="submit-challenge">
+          <i class="fi fi-sr-add-document"></i>
+          <span>Submit Challenge</span>
+          <span class="sb-tag">Citizen</span>
+        </a>
+
+        <a href="#challenge-explorer" class="sidebar-link" data-view="challenge-explorer">
+          <i class="fi fi-sr-search"></i>
+          <span>Challenge Explorer</span>
+        </a>
+
+        <a href="#ai-matching" class="sidebar-link" data-view="ai-matching">
+          <i class="fi fi-sr-sparkles"></i>
+          <span>AI Matching</span>
+          <span class="sb-tag">NLP</span>
+        </a>
+
+        <!-- Section: COLLABORATION -->
+        <div class="sidebar-section-label">COLLABORATION</div>
+
+        <a href="#university-workspace" class="sidebar-link" data-view="university-workspace">
+          <i class="fi fi-sr-graduation-cap"></i>
+          <span>University Workspace</span>
+          <span class="sb-badge-count" id="sbUniCount">8</span>
+        </a>
+
+        <a href="#project-workspace" class="sidebar-link" data-view="project-workspace">
+          <i class="fi fi-sr-folder"></i>
+          <span>Project Workspace</span>
+        </a>
+
+        <a href="#industry-partners" class="sidebar-link" data-view="industry-partners">
+          <i class="fi fi-sr-handshake"></i>
+          <span>Industry Partners</span>
+          <span class="sb-tag">CSR</span>
+        </a>
+
+        <!-- Section: INSIGHTS -->
+        <div class="sidebar-section-label">INSIGHTS</div>
+
+        <a href="#project-tracking" class="sidebar-link" data-view="project-tracking">
+          <i class="fi fi-sr-chart-line-up"></i>
+          <span>Project Tracking</span>
+        </a>
+
+        <a href="#gov-analytics" class="sidebar-link" data-view="gov-analytics">
+          <i class="fi fi-sr-stats"></i>
+          <span>Gov. Analytics</span>
+          <span class="sb-tag">Admin</span>
+        </a>
+
+        <a href="#impact-dashboard" class="sidebar-link" data-view="impact-dashboard">
+          <i class="fi fi-sr-globe"></i>
+          <span>Impact Dashboard</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Bottom Citizen Card -->
+      <div class="sidebar-user-footer">
+        <div class="citizen-avatar">HA</div>
+        <div class="citizen-info">
+          <h4>Harshita NM</h4>
+          <p>Citizen &bull; Ranchi</p>
+        </div>
+        <button class="user-action-dots" onclick="showToast('Citizen Account Verified &bull; Ranchi Ward #14')" title="Account Info">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA -->
+    <main class="jic-main-canvas" id="mainCanvas">
+      
+      <!-- Top Breadcrumb Row -->
+      <div class="content-top-header">
+        <div class="header-breadcrumb-wrap">
+          <button class="mobile-sidebar-toggle" id="mobileMenuBtn" aria-label="Toggle Sidebar Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h1 class="view-title" id="currentViewTitle">Dashboard</h1>
+            <p class="view-sub" id="currentViewSub">Jharkhand Innovation Connect &mdash; Overview</p>
+          </div>
+        </div>
+
+        <div class="header-right-actions">
+          <div class="ai-active-pill inline">
+            <span class="pulse-dot"></span>
+            <span>AI Active</span>
+          </div>
+          <div class="user-avatar-badge" title="Profile: Rajesh Kumar">RK</div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 1: DASHBOARD (Hostinger Style Floating Black & White)
+           ====================================================================== -->
+      <div class="app-view active" id="view-dashboard">
+        
+        <!-- Center Floating Greeting & AI Prompt Box (Hostinger Style) -->
+        <div class="hostinger-greeting-section">
+          <h2 class="hostinger-greeting-title">Hi, Jai! How can I help you today?</h2>
+          
+          <div class="hostinger-ai-prompt-box">
+            <div class="ai-prompt-input-row">
+              <input type="text" id="dashboardAiQueryInput" class="ai-prompt-input" placeholder="Type what you're looking for or ask a question..." onkeydown="if(event.key==='Enter') handleDashboardPrompt()">
+              <button class="ai-prompt-send-btn" onclick="handleDashboardPrompt()" title="Submit search / prompt">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </button>
+            </div>
+
+            <!-- Quick Action Pills Row -->
+            <div class="ai-prompt-pills-row">
+              <button class="prompt-pill-btn" onclick="switchView('submit-challenge')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                <span>Submit challenge</span>
+              </button>
+              <button class="prompt-pill-btn" onclick="switchView('challenge-explorer')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span>Explore solutions</span>
+              </button>
+              <button class="prompt-pill-btn" onclick="switchView('ai-matching')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                <span>AI Matching</span>
+              </button>
+              <button class="prompt-pill-btn" onclick="switchView('gov-analytics')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                <span>Gov. Analytics</span>
+              </button>
+              <button class="prompt-pill-btn" onclick="switchView('industry-partners')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg>
+                <span>Industry Partners</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Your active challenge / project (Matches 'Your business' from screenshot) -->
+        <div class="hostinger-sec-block">
+          <h3 class="hostinger-sec-heading">Your active project</h3>
+          <div class="floating-project-card">
+            <div class="fpc-left">
+              <div class="fpc-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <div class="fpc-content">
+                <div class="fpc-title-row">
+                  <h4 class="fpc-title">Water Quality IoT Monitoring &bull; Bokaro Steel City</h4>
+                  <a href="#project-workspace" onclick="switchView('project-workspace')" class="fpc-external-link" title="Open Project Workspace">&#8599;</a>
+                </div>
+                <div class="fpc-meta">JH-2024-1842 &bull; Water &amp; Sanitation &bull; BIT Mesra Lead &bull; 42% complete</div>
+                
+                <div class="fpc-action-pills">
+                  <button class="fpc-pill-btn" onclick="switchView('project-workspace')">+ Task board</button>
+                  <button class="fpc-pill-btn" onclick="switchView('project-tracking')">+ Track progress</button>
+                  <button class="fpc-pill-btn" onclick="showToast('IoT Telemetry: 12 active sensors reporting in Sector 4')">+ Live telemetry</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="fpc-right">
+              <button class="btn-floating-pill-primary" onclick="switchView('project-workspace')">
+                Manage project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Your to-dos (1) (Matches 'Your to-dos' from screenshot) -->
+        <div class="hostinger-sec-block">
+          <div class="hostinger-sec-title-row">
+            <h3 class="hostinger-sec-heading">Your to-dos</h3>
+            <span class="hostinger-badge-count">1</span>
+          </div>
+          
+          <div class="floating-todo-card">
+            <div class="ftc-left">
+              <div class="ftc-spinner-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m12 6 2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/></svg>
+              </div>
+              <div class="ftc-content">
+                <h4 class="ftc-title">Assign 3 grassroots challenges to University R&amp;D Labs</h4>
+                <p class="ftc-sub">Arsenic water filtration in Ranchi &amp; tribal education in Dumka are pending academic mentor matching.</p>
+              </div>
+            </div>
+
+            <div class="ftc-right">
+              <button class="btn-floating-pill-white" onclick="switchView('ai-matching')">
+                Get started
+              </button>
+              <button class="btn-todo-close" onclick="this.closest('.floating-todo-card').style.display='none'" title="Dismiss to-do">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Recommended & Key Impact Metrics (Floating Grid) -->
+        <div class="hostinger-sec-block">
+          <div class="hostinger-sec-title-row">
+            <h3 class="hostinger-sec-heading">Platform metrics &amp; impact</h3>
+            <span class="hostinger-badge-count">4</span>
+          </div>
+
+        <!-- 4 Stat Cards Row with Visual Progress Bars -->
+        <section class="jic-stats-row">
+          <div class="jic-stat-card" onclick="switchView('challenge-explorer')" style="cursor: pointer;">
+            <div class="stat-top-meta">
+              <div class="stat-dot-badge accent"></div>
+              <div class="stat-growth-tag accent">+124 THIS MONTH</div>
+            </div>
+            <div class="stat-big-num">2,847</div>
+            <div class="stat-meta-label">Challenges Submitted</div>
+            <div class="stat-bar-track"><div class="stat-bar-fill accent" style="width: 86%;"></div></div>
+          </div>
+
+          <div class="jic-stat-card" onclick="switchView('project-workspace')" style="cursor: pointer;">
+            <div class="stat-top-meta">
+              <div class="stat-dot-badge"></div>
+              <div class="stat-growth-tag">+28 THIS MONTH</div>
+            </div>
+            <div class="stat-big-num">342</div>
+            <div class="stat-meta-label">Active Projects</div>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 68%;"></div></div>
+          </div>
+
+          <div class="jic-stat-card" onclick="switchView('university-workspace')" style="cursor: pointer;">
+            <div class="stat-top-meta">
+              <div class="stat-dot-badge"></div>
+              <div class="stat-growth-tag">18 OF 25 HEIs</div>
+            </div>
+            <div class="stat-big-num">18</div>
+            <div class="stat-meta-label">Universities Engaged</div>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 72%;"></div></div>
+          </div>
+
+          <div class="jic-stat-card" onclick="switchView('impact-dashboard')" style="cursor: pointer;">
+            <div class="stat-top-meta">
+              <div class="stat-dot-badge accent"></div>
+              <div class="stat-growth-tag accent">1.2M CITIZENS</div>
+            </div>
+            <div class="stat-big-num">89</div>
+            <div class="stat-meta-label">Solutions Deployed</div>
+            <div class="stat-bar-track"><div class="stat-bar-fill accent" style="width: 92%;"></div></div>
+          </div>
+        </section>
+        </div>
+
+        <!-- Two-Column Grid: Recent Challenges & Domain Progress Bars -->
+        <div class="jic-two-col-grid">
+          
+          <!-- Left Column (65%): Recent Challenges -->
+          <div class="jic-card recent-challenges-card">
+            <div class="card-head-row">
+              <h3 class="card-title-text">Recent Challenges</h3>
+              <a href="#challenge-explorer" class="card-view-all-link" onclick="switchView('challenge-explorer')">
+                View all &rarr;
+              </a>
+            </div>
+
+            <div class="recent-challenges-list" id="dashboardRecentList">
+              <!-- Item 1 -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2024-1842</span>
+                    <span class="pill-priority-critical">Critical</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Contaminated water in Bokaro Steel City residential zones
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Water &amp; Sanitation</span> &bull; <span>Bokaro</span> &bull; <span>347 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-neutral">University Matching</span>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2024-1837</span>
+                    <span class="pill-priority-high">High</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Rural girls dropping out after Class 8 in Dumka villages
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Education</span> &bull; <span>Dumka</span> &bull; <span>289 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-neutral">Team Formation</span>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2024-1831</span>
+                    <span class="pill-priority-high">High</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Crop price information unavailability for tribal farmers
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Agriculture</span> &bull; <span>Khunti</span> &bull; <span>412 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-accent">Development</span>
+                </div>
+              </div>
+
+              <!-- Item 4 (MVP Challenge: Ranchi) -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2026-01</span>
+                    <span class="pill-priority-critical">Critical</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Water Issue in Ranchi: High Arsenic &amp; Iron in Kanke Borewells
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Water &amp; Sanitation</span> &bull; <span>Ranchi</span> &bull; <span>512 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-neutral">Govt Verified</span>
+                </div>
+              </div>
+
+              <!-- Item 5 (MVP Challenge: Dhanbad) -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2026-02</span>
+                    <span class="pill-priority-high">High</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Education Gap in Dhanbad: Smart Offline Classroom Modules
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Smart Education</span> &bull; <span>Dhanbad</span> &bull; <span>342 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-neutral">Assigned to IIT ISM</span>
+                </div>
+              </div>
+
+              <!-- Item 6 (MVP Challenge: Bokaro) -->
+              <div class="challenge-list-item">
+                <div class="item-left-info">
+                  <div class="item-code-row">
+                    <span class="item-id-code">JH-2026-03</span>
+                    <span class="pill-priority-critical">Critical</span>
+                  </div>
+                  <h4 class="item-title-link" onclick="switchView('challenge-explorer')">
+                    Healthcare Issue in Bokaro: Mobile Neonatal Telemedicine Kits
+                  </h4>
+                  <div class="item-meta-sub">
+                    <span>Healthcare &amp; Nutrition</span> &bull; <span>Bokaro</span> &bull; <span>428 votes</span>
+                  </div>
+                </div>
+                <div class="item-right-status">
+                  <span class="status-pill-accent">In Prototyping</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (35%): Domain Progress Bars & Top Districts -->
+          <div class="jic-right-stack">
+            
+            <div class="jic-card">
+              <h3 class="card-title-text" style="margin-bottom: 14px;">Challenges by Domain</h3>
+
+              <div class="domain-bars-list">
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Water &amp; Sanitation</span>
+                    <span class="domain-count">573</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 82%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Education</span>
+                    <span class="domain-count">412</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 65%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Agriculture</span>
+                    <span class="domain-count">389</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 58%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Healthcare</span>
+                    <span class="domain-count">334</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 52%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Environment</span>
+                    <span class="domain-count">287</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 44%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-bar-row">
+                  <div class="domain-info-line">
+                    <span class="domain-name">Livelihood</span>
+                    <span class="domain-count">241</span>
+                  </div>
+                  <div class="domain-track">
+                    <div class="domain-fill" style="width: 36%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Districts -->
+            <div class="jic-card">
+              <div class="card-head-row">
+                <h3 class="card-title-text">Top Districts</h3>
+                <span class="card-view-all-link" onclick="switchView('challenge-explorer')">Filter &rarr;</span>
+              </div>
+
+              <div class="districts-list">
+                <div class="district-row">
+                  <div class="dist-left">
+                    <span class="dist-rank">1</span>
+                    <strong>Ranchi</strong>
+                  </div>
+                  <span class="dist-val">620 problems</span>
+                </div>
+                <div class="district-row">
+                  <div class="dist-left">
+                    <span class="dist-rank">2</span>
+                    <strong>Dhanbad</strong>
+                  </div>
+                  <span class="dist-val">480 problems</span>
+                </div>
+                <div class="district-row">
+                  <div class="dist-left">
+                    <span class="dist-rank">3</span>
+                    <strong>Bokaro</strong>
+                  </div>
+                  <span class="dist-val">390 problems</span>
+                </div>
+                <div class="district-row">
+                  <div class="dist-left">
+                    <span class="dist-rank">4</span>
+                    <strong>East Singhbhum</strong>
+                  </div>
+                  <span class="dist-val">310 problems</span>
+                </div>
+                <div class="district-row">
+                  <div class="dist-left">
+                    <span class="dist-rank">5</span>
+                    <strong>Dumka</strong>
+                  </div>
+                  <span class="dist-val">240 problems</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 2: SUBMIT CHALLENGE (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-submit-challenge">
+        <!-- 4-Step Stepper Header (From Screenshot) -->
+        <div class="submit-wizard-stepper">
+          <div class="step-pill-node active" id="stepNode1">
+            <span class="step-circ-num">1</span>
+            <span class="step-node-text">Basic Info</span>
+          </div>
+          <div class="step-connector-line"></div>
+          <div class="step-pill-node" id="stepNode2">
+            <span class="step-circ-num">2</span>
+            <span class="step-node-text">Details &amp; Media</span>
+          </div>
+          <div class="step-connector-line"></div>
+          <div class="step-pill-node" id="stepNode3">
+            <span class="step-circ-num">3</span>
+            <span class="step-node-text">AI Review</span>
+          </div>
+          <div class="step-connector-line"></div>
+          <div class="step-pill-node" id="stepNode4">
+            <span class="step-circ-num">4</span>
+            <span class="step-node-text">Submit</span>
+          </div>
+        </div>
+
+        <!-- Submit Challenge Main Form Card (Exact Match to Screenshot) -->
+        <div class="jic-card submit-challenge-main-card">
+          <div class="wizard-header">
+            <h2 class="wizard-title">What's the challenge?</h2>
+            <p class="wizard-subtitle">Give a clear, specific title that describes the problem in your community.</p>
+          </div>
+
+          <form id="inlineCitizenSubmitForm" class="wizard-form-body">
+            <!-- Field 1: Title -->
+            <div class="form-group-block">
+              <label for="cProbTitle" class="wizard-label">CHALLENGE TITLE *</label>
+              <input type="text" id="cProbTitle" required class="wizard-input" placeholder="e.g. Contaminated water supply in Sector 4, Bokaro Steel City">
+            </div>
+
+            <!-- Field 2 & 3: Domain & District Row -->
+            <div class="form-row two-cols">
+              <div class="form-group-block">
+                <label for="cProbCategory" class="wizard-label">DOMAIN *</label>
+                <select id="cProbCategory" required class="wizard-select">
+                  <option value="">Select domain</option>
+                  <option value="Water & Sanitation">Water &amp; Sanitation</option>
+                  <option value="Smart Education">Education</option>
+                  <option value="Healthcare & Nutrition">Healthcare</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Environment & Energy">Environment</option>
+                  <option value="Livelihood">Livelihood</option>
+                  <option value="Infrastructure">Infrastructure</option>
+                </select>
+              </div>
+
+              <div class="form-group-block">
+                <label for="cProbDistrict" class="wizard-label">DISTRICT *</label>
+                <select id="cProbDistrict" required class="wizard-select">
+                  <option value="">Select district</option>
+                  <option value="Bokaro">Bokaro</option>
+                  <option value="Ranchi">Ranchi</option>
+                  <option value="Dhanbad">Dhanbad</option>
+                  <option value="Dumka">Dumka</option>
+                  <option value="Koderma">Koderma</option>
+                  <option value="Saraikela">Saraikela</option>
+                  <option value="Khunti">Khunti</option>
+                  <option value="East Singhbhum">East Singhbhum (Jamshedpur)</option>
+                  <option value="Hazaribagh">Hazaribagh</option>
+                  <option value="Lohardaga">Lohardaga</option>
+                  <option value="Palamu">Palamu</option>
+                  <option value="Latehar">Latehar</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Field 4: Specific Location -->
+            <div class="form-group-block">
+              <label for="cProbLocation" class="wizard-label">SPECIFIC LOCATION</label>
+              <input type="text" id="cProbLocation" class="wizard-input" placeholder="Village, ward, block or exact address">
+            </div>
+
+            <!-- Field 5 & 6: People Affected & Urgency Row -->
+            <div class="form-row two-cols">
+              <div class="form-group-block">
+                <label for="cProbAffected" class="wizard-label">PEOPLE AFFECTED</label>
+                <input type="text" id="cProbAffected" class="wizard-input" placeholder="Estimated count (e.g. 12,000)">
+              </div>
+
+              <div class="form-group-block">
+                <label class="wizard-label">URGENCY</label>
+                <div class="urgency-segmented-group" id="urgencyGroup">
+                  <button type="button" class="urgency-btn" data-urgency="Low" onclick="selectUrgency(this)">Low</button>
+                  <button type="button" class="urgency-btn" data-urgency="Medium" onclick="selectUrgency(this)">Medium</button>
+                  <button type="button" class="urgency-btn active" data-urgency="High" onclick="selectUrgency(this)">High</button>
+                  <button type="button" class="urgency-btn" data-urgency="Critical" onclick="selectUrgency(this)">Critical</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Details & Media (Hidden initially or expandable) -->
+            <div class="form-group-block" id="mediaUploadBlock" style="margin-top: 14px;">
+              <label class="wizard-label">DESCRIPTION &amp; EVIDENCE (PHOTOS/VIDEOS)</label>
+              <textarea id="cProbDesc" rows="3" class="wizard-input" placeholder="Describe the background, how long this issue has persisted, and technical solution needed..."></textarea>
+              <div class="custom-file-box" style="margin-top: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span id="cFileLabel">Attach photos, field test reports or video</span>
+                <input type="file" id="cProbFile" accept="image/*,video/*" class="hidden-file-input">
+              </div>
+            </div>
+
+            <div class="wizard-footer-bar">
+              <button type="button" class="btn-gps-detect" id="cAutoGpsBtn" style="width: auto; padding: 8px 14px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="cGpsText">Detect Location</span>
+              </button>
+              <button type="submit" class="btn-wizard-continue" id="wizardContinueBtn">
+                Continue &rarr;
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Live Citizen Tickets Status Tracker -->
+        <div class="jic-card" style="margin-top: 20px;">
+          <div class="card-tag-row">
+            <span class="pill-badge">Track Status</span>
+            <span class="sub-counter-badge">Active Tickets: <strong id="citizenTicketCount">2</strong></span>
+          </div>
+          <h3 class="box-heading">My Submitted Problems</h3>
+          <p class="box-desc">Real-time status updates as government verifies your submission and assigns university R&amp;D teams.</p>
+          <div class="citizen-tickets-list" id="citizenTicketsList">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 3: CHALLENGE EXPLORER (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-challenge-explorer">
+        
+        <!-- Search & Filter Ribbon (From Screenshot) -->
+        <div class="explorer-filter-card">
+          <div class="search-input-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="challengeSearchInput" placeholder="Search challenges, districts, keywords...">
+          </div>
+
+          <!-- Phase Filter Pills (Exact list from screenshot) -->
+          <div class="phase-pills-row">
+            <button class="phase-pill active" data-phase="all" onclick="filterByPhase(this, 'all')">All</button>
+            <button class="phase-pill" data-phase="Validation" onclick="filterByPhase(this, 'Validation')">Validation</button>
+            <button class="phase-pill" data-phase="University Matching" onclick="filterByPhase(this, 'University Matching')">University Matching</button>
+            <button class="phase-pill" data-phase="Team Formation" onclick="filterByPhase(this, 'Team Formation')">Team Formation</button>
+            <button class="phase-pill" data-phase="Proposal" onclick="filterByPhase(this, 'Proposal')">Proposal</button>
+            <button class="phase-pill" data-phase="Development" onclick="filterByPhase(this, 'Development')">Development</button>
+            <button class="phase-pill" data-phase="Testing" onclick="filterByPhase(this, 'Testing')">Testing</button>
+            <button class="phase-pill" data-phase="Deployed" onclick="filterByPhase(this, 'Deployed')">Deployed</button>
+          </div>
+
+          <!-- Secondary Filters Row -->
+          <div class="secondary-filter-row">
+            <div class="sec-filter-left">
+              <select id="districtFilter" class="sec-select">
+                <option value="all">All Districts</option>
+                <option value="Koderma">Koderma</option>
+                <option value="Saraikela">Saraikela</option>
+                <option value="Khunti">Khunti</option>
+                <option value="Bokaro">Bokaro</option>
+                <option value="Dumka">Dumka</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Lohardaga">Lohardaga</option>
+                <option value="Dhanbad">Dhanbad</option>
+              </select>
+
+              <select id="sortFilter" class="sec-select" onchange="sortChallenges(this.value)">
+                <option value="votes">Sort: Most Votes</option>
+                <option value="recent">Sort: Most Recent</option>
+                <option value="urgency">Sort: Urgency</option>
+              </select>
+            </div>
+
+            <div class="sec-filter-right">
+              <span class="results-count-text" id="resultsCountText">8 results</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Split: Challenge List (Left 65%) + Right Detail Panel (35%) (From Screenshot) -->
+        <div class="explorer-split-grid">
+          
+          <!-- Left List of Challenges -->
+          <div class="challenges-master-list" id="challengesMasterList">
+            <!-- Dynamically populated by app.js with exact items from screenshot -->
+          </div>
+
+          <!-- Right Detail Panel (Fixed/Sticky from Screenshot) -->
+          <div class="challenge-detail-panel" id="challengeDetailPanel">
+            <div class="jic-card detail-card-body">
+              <div class="detail-header-row">
+                <span class="detail-id-code" id="detailId">JH-2024-1818</span>
+                <span class="pill-priority-critical" id="detailPriority">Critical</span>
+              </div>
+
+              <h3 class="detail-title-text" id="detailTitle">
+                Mica mining child labor in Koderma villages
+              </h3>
+
+              <div class="detail-meta-table">
+                <div class="detail-meta-row">
+                  <span class="dm-label">Phase</span>
+                  <span class="dm-val" id="detailPhase">Development</span>
+                </div>
+                <div class="detail-meta-row">
+                  <span class="dm-label">Domain</span>
+                  <span class="dm-val" id="detailDomain">Livelihood</span>
+                </div>
+                <div class="detail-meta-row">
+                  <span class="dm-label">District</span>
+                  <span class="dm-val" id="detailDistrict">Koderma</span>
+                </div>
+                <div class="detail-meta-row">
+                  <span class="dm-label">Community Votes</span>
+                  <span class="dm-val votes" id="detailVotes">▲ 623</span>
+                </div>
+                <div class="detail-meta-row">
+                  <span class="dm-label">Active Teams</span>
+                  <span class="dm-val" id="detailTeams">4 team(s)</span>
+                </div>
+              </div>
+
+              <div class="detail-desc-box" id="detailDesc">
+                Children aged 8-14 found working in hazardous mica mining. NGO partnership needed for rehabilitation programs.
+              </div>
+
+              <!-- Phase Progress Bar (From Screenshot) -->
+              <div class="phase-progress-widget">
+                <div class="pp-label-row">
+                  <span class="pp-title">PHASE PROGRESS</span>
+                  <span class="pp-step-text" id="detailStepText">Step 5 of 7</span>
+                </div>
+                <div class="pp-segments-track" id="detailSegmentsTrack">
+                  <div class="pp-seg active"></div>
+                  <div class="pp-seg active"></div>
+                  <div class="pp-seg active"></div>
+                  <div class="pp-seg active"></div>
+                  <div class="pp-seg active"></div>
+                  <div class="pp-seg"></div>
+                  <div class="pp-seg"></div>
+                </div>
+              </div>
+
+              <!-- Action Buttons (From Screenshot) -->
+              <div class="detail-action-buttons">
+                <div class="action-btn-pair">
+                  <button class="btn-detail-vote" id="detailVoteBtn" onclick="voteOnDetail()">
+                    ▲ Vote (<span id="detailVoteCount">623</span>)
+                  </button>
+                  <button class="btn-detail-aimatch" id="detailAiMatchBtn" onclick="runAiMatchFromExplorer()">
+                    AI Match &rarr;
+                  </button>
+                </div>
+                <button class="btn-detail-workspace" onclick="switchView('project-workspace')">
+                  View Project Workspace
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 4: AI MATCHING ENGINE (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-ai-matching">
+        
+        <!-- Challenge Header Banner (From Screenshot) -->
+        <div class="jic-card ai-selected-challenge-card">
+          <div class="ai-card-left">
+            <div class="item-code-row">
+              <span class="item-id-code">JH-2024-1842</span>
+              <span class="pill-priority-critical">Critical</span>
+              <span class="status-pill-neutral">Water &amp; Sanitation</span>
+            </div>
+            <h3 class="ai-prob-title">
+              Contaminated water in Bokaro Steel City residential zones
+            </h3>
+            <p class="ai-prob-meta">
+              12,000 people affected &bull; Bokaro, Jharkhand
+            </p>
+          </div>
+
+          <div class="ai-card-right">
+            <button class="btn-run-ai-matching" id="btnRunAiMatching" onclick="triggerAiMatchingEngine()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+              <span>Run AI Matching</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Big AI Matching Engine Card (Exact Sparkle Layout from Screenshot) -->
+        <div class="jic-card ai-engine-main-canvas" id="aiEngineCanvas">
+          <div class="ai-sparkle-center" id="aiSparkleInitial">
+            <div class="sparkle-icon-large">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="#111827" stroke="none">
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+              </svg>
+            </div>
+            <h3 class="ai-engine-title">AI Matching Engine</h3>
+            <p class="ai-engine-desc">
+              Our NLP-powered system analyzes challenges across 7 dimensions to find the most relevant university departments and faculty.
+            </p>
+            <p class="ai-engine-hint">
+              Click &quot;Run AI Matching&quot; above to begin analysis
+            </p>
+          </div>
+
+          <!-- Matched Results (Revealed upon running AI Matching) -->
+          <div class="ai-results-wrapper" id="aiResultsWrapper" style="display: none;">
+            <div class="ai-results-header">
+              <span class="status-pill-accent">✓ 3 Multi-Disciplinary University Labs Matched</span>
+              <small style="color: var(--text-muted);">Confidence: 98.4% &bull; NLP Domain Matrix v2.6</small>
+            </div>
+
+            <div class="ai-matches-grid" style="margin-top: 16px;">
+              <div class="ai-match-card">
+                <div class="match-score-badge">98% Match</div>
+                <h4>BIT Mesra &bull; Dept of Chemical &amp; Environmental Engg</h4>
+                <p class="match-rationale">Specialization: Electro-coagulation heavy metal water filtration. 2 granted patents in arsenic removal.</p>
+                <div class="match-meta">
+                  <span>Lead Faculty: Dr. S. K. Roy</span>
+                  <button class="btn-primary-action btn-sm" onclick="showToast('Assigned to BIT Mesra Environmental Lab!')">Auto-Assign Lab &rarr;</button>
+                </div>
+              </div>
+
+              <div class="ai-match-card">
+                <div class="match-score-badge">95% Match</div>
+                <h4>IIT (ISM) Dhanbad &bull; Environmental Science &amp; Engineering</h4>
+                <p class="match-rationale">Specialization: Industrial runoff containment and groundwater sensor telemetry.</p>
+                <div class="match-meta">
+                  <span>Lead Faculty: Dr. A. Sengupta</span>
+                  <button class="btn-primary-action btn-sm" onclick="showToast('Assigned to IIT (ISM) Dhanbad Lab!')">Auto-Assign Lab &rarr;</button>
+                </div>
+              </div>
+
+              <div class="ai-match-card">
+                <div class="match-score-badge">91% Match</div>
+                <h4>NIT Jamshedpur &bull; Civil &amp; Water Resources Engineering</h4>
+                <p class="match-rationale">Specialization: Municipal water pipeline testing &amp; community purification kiosks.</p>
+                <div class="match-meta">
+                  <span>Lead Faculty: Dr. P. K. Verma</span>
+                  <button class="btn-primary-action btn-sm" onclick="showToast('Assigned to NIT Jamshedpur Water Lab!')">Auto-Assign Lab &rarr;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================================================================
+           VIEW 5: UNIVERSITY WORKSPACE
+           ====================================================================== -->
+      <div class="app-view" id="view-university-workspace">
+        <div class="jic-card">
+          <div class="dash-tab-bar">
+            <button class="dash-tab-btn active" data-uni-tab="available" id="uniTabAvailable">
+              Available Challenges (<span id="uniAvailableCount">4</span>)
+            </button>
+            <button class="dash-tab-btn" data-uni-tab="assigned" id="uniTabAssigned">
+              Assigned Problems (<span id="uniAssignedCount">4</span>)
+            </button>
+            <button class="dash-tab-btn" data-uni-tab="solutions" id="uniTabSolutions">
+              Submitted Solutions &amp; Progress (<span id="uniSolutionsCount">2</span>)
+            </button>
+          </div>
+
+          <div class="uni-challenges-grid" id="uniChallengesGrid">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 6: PROJECT WORKSPACE (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-project-workspace">
+        
+        <!-- Top Project Header Banner (From Screenshot) -->
+        <div class="jic-card workspace-hero-banner">
+          <div class="ws-banner-top-row">
+            <div class="ws-title-group">
+              <div class="item-code-row">
+                <span class="item-id-code">JH-2024-1842</span>
+                <span class="status-pill-neutral">Development</span>
+                <span class="pill-priority-critical">Critical</span>
+              </div>
+              <h2 class="ws-hero-title">Water Quality IoT Monitoring — Bokaro Steel City</h2>
+              <p class="ws-hero-meta">
+                BIT Mesra &bull; Team of 5 &bull; Dr. Meenakshi Jha (Mentor) &bull; Due: Dec 31, 2024
+              </p>
+            </div>
+
+            <div class="ws-header-right">
+              <div class="team-avatar-stack">
+                <span class="t-avatar">PS</span>
+                <span class="t-avatar">AM</span>
+                <span class="t-avatar">SH</span>
+                <span class="t-avatar">RK</span>
+              </div>
+              <button class="btn-track-progress" onclick="switchView('project-tracking')">
+                <span>Track Progress</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Progress Bar Row -->
+          <div class="ws-banner-progress-row">
+            <div class="ws-progress-track">
+              <div class="ws-progress-fill" style="width: 42%;"></div>
+            </div>
+            <div class="ws-progress-stat">
+              <strong>42%</strong>
+              <span>3 of 7 milestones complete</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Navigation Buttons (From Screenshot) -->
+        <div class="ws-tab-pills-row">
+          <button class="ws-tab-btn active" id="wsTabBoard" onclick="switchWorkspaceTab('board')">Task Board</button>
+          <button class="ws-tab-btn" id="wsTabDiscussion" onclick="switchWorkspaceTab('discussion')">Discussion</button>
+          <button class="ws-tab-btn" id="wsTabResources" onclick="switchWorkspaceTab('resources')">Resources</button>
+          <button class="ws-tab-btn" id="wsTabTesting" onclick="switchWorkspaceTab('testing')">Testing Log</button>
+        </div>
+
+        <!-- 3-Column Kanban Board (From Screenshot) -->
+        <div class="ws-kanban-board" id="wsKanbanBoard">
+          <!-- Column 1: Todo (3) -->
+          <div class="ws-kanban-col">
+            <div class="ws-col-header">
+              <span class="col-title">Todo</span>
+              <span class="col-count">3</span>
+            </div>
+
+            <div class="ws-cards-stack">
+              <!-- Task T-06 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-06</span>
+                    <span class="dot-amber"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Community awareness campaign materials</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">SH</span>
+                  <span class="task-due">Due Nov 20</span>
+                </div>
+              </div>
+
+              <!-- Task T-07 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-07</span>
+                    <span class="dot-red"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Dashboard for Bokaro Municipal Corporation</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">PS</span>
+                  <span class="task-due">Due Nov 25</span>
+                </div>
+              </div>
+
+              <!-- Task T-08 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-08</span>
+                    <span class="dot-red"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Field testing in pilot zone (Sector 4)</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">ALL</span>
+                  <span class="task-due">Due Dec 5</span>
+                </div>
+              </div>
+
+              <!-- Add Task Button -->
+              <button class="ws-btn-add-task" onclick="addNewWorkspaceTask('Todo')">
+                + Add task
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 2: In Progress (3) -->
+          <div class="ws-kanban-col">
+            <div class="ws-col-header in-progress">
+              <span class="col-title">In Progress</span>
+              <span class="col-count">3</span>
+            </div>
+
+            <div class="ws-cards-stack">
+              <!-- Task T-03 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-03</span>
+                    <span class="dot-amber"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">IoT sensor prototype — Arduino + TDS module</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">RK</span>
+                  <span class="task-due">Due Nov 10</span>
+                </div>
+              </div>
+
+              <!-- Task T-04 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-04</span>
+                    <span class="dot-amber"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Mobile app UI design for citizen alerts</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">AM</span>
+                  <span class="task-due">Due Nov 12</span>
+                </div>
+              </div>
+
+              <!-- Task T-05 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-05</span>
+                    <span class="dot-red"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Backend API for sensor data ingestion</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">AM</span>
+                  <span class="task-due">Due Nov 15</span>
+                </div>
+              </div>
+
+              <!-- Add Task Button -->
+              <button class="ws-btn-add-task" onclick="addNewWorkspaceTask('In Progress')">
+                + Add task
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 3: Done (2) -->
+          <div class="ws-kanban-col">
+            <div class="ws-col-header done">
+              <span class="col-title">Done</span>
+              <span class="col-count">2</span>
+            </div>
+
+            <div class="ws-cards-stack">
+              <!-- Task T-01 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-01</span>
+                    <span class="dot-amber"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Water sample collection — Bokaro sectors 4, 5, 6</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">SH</span>
+                  <span class="task-due">Due Oct 28</span>
+                </div>
+              </div>
+
+              <!-- Task T-02 -->
+              <div class="ws-task-card">
+                <div class="task-card-top">
+                  <div class="task-id-dot">
+                    <span class="task-code">T-02</span>
+                    <span class="dot-red"></span>
+                  </div>
+                </div>
+                <h4 class="task-title">Lab analysis of fluoride and iron levels</h4>
+                <div class="task-footer">
+                  <span class="task-assignee">PS</span>
+                  <span class="task-due">Due Nov 2</span>
+                </div>
+              </div>
+
+              <!-- Add Task Button -->
+              <button class="ws-btn-add-task" onclick="addNewWorkspaceTask('Done')">
+                + Add task
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Panel for Discussion / Resources (Hidden by default, shown on tab click) -->
+        <div class="jic-card ws-tab-content-panel" id="wsTabContentDiscussion" style="display: none; margin-top: 20px;">
+          <h3 class="box-heading">Team R&amp;D Discussion</h3>
+          <p class="box-desc">Real-time collaboration between BIT Mesra students, mentor Dr. Meenakshi Jha, and municipal officers.</p>
+          <div class="team-log-list" id="teamLogList">
+            <div class="log-item">
+              <div class="log-avatar">MJ</div>
+              <div class="log-content">
+                <strong>Dr. Meenakshi Jha (Faculty Guide, BIT Mesra)</strong>
+                <p>Sensor telemetry calibration approved. Proceed with the pilot deployment in Sector 4 pump house.</p>
+                <small>Today at 2:15 PM</small>
+              </div>
+            </div>
+            <div class="log-item">
+              <div class="log-avatar">RK</div>
+              <div class="log-content">
+                <strong>Rajesh Kumar (Student Lead)</strong>
+                <p>Firmware v1.4 compiled with ESP32 LoRa fallback module.</p>
+                <small>Today at 11:30 AM</small>
+              </div>
+            </div>
+          </div>
+          <div class="quick-log-form" style="margin-top: 14px;">
+            <input type="text" id="quickLogInput" placeholder="Write a message or update..." class="jic-select">
+            <button class="btn-primary-action btn-sm" style="margin-top: 8px;" onclick="postTeamUpdate()">Post Update</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 7: INDUSTRY PARTNERS (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-industry-partners">
+        
+        <!-- Top Industry Partnership Hub Card (From Screenshot) -->
+        <div class="jic-card ind-hero-card">
+          <div class="ind-hero-left">
+            <h2 class="ind-hero-title">Industry Partnership Hub</h2>
+            <p class="ind-hero-desc">
+              Connect your organization with student teams solving Jharkhand's real challenges. Offer mentorship, funding, technology, and implementation support.
+            </p>
+          </div>
+          <div class="ind-hero-right">
+            <button class="btn-register-partner" onclick="switchIndustryTab('join')">
+              Register as Partner
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Metric Cards Row (From Screenshot) -->
+        <div class="ind-metrics-row">
+          <div class="ind-metric-card">
+            <div class="ind-metric-icon">
+              <!-- Grad Cap Icon -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="ind-metric-num">142</div>
+            <div class="ind-metric-label">Mentorship</div>
+          </div>
+
+          <div class="ind-metric-card">
+            <div class="ind-metric-icon">
+              <!-- Money Bag Icon -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+            </div>
+            <div class="ind-metric-num">2.8</div>
+            <div class="ind-metric-label">Funding (₹ Cr)</div>
+          </div>
+
+          <div class="ind-metric-card">
+            <div class="ind-metric-icon">
+              <!-- Gear Icon -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <div class="ind-metric-num">34</div>
+            <div class="ind-metric-label">Technology Grants</div>
+          </div>
+
+          <div class="ind-metric-card">
+            <div class="ind-metric-icon">
+              <!-- Chain Link Icon -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div class="ind-metric-num">18</div>
+            <div class="ind-metric-label">Market Linkages</div>
+          </div>
+        </div>
+
+        <!-- Industry Sub-Tabs (From Screenshot) -->
+        <div class="ind-tabs-row">
+          <button class="ind-tab-btn active" id="indTabActive" onclick="switchIndustryTab('active')">Active Partners</button>
+          <button class="ind-tab-btn" id="indTabOpps" onclick="switchIndustryTab('opps')">Open Opportunities</button>
+          <button class="ind-tab-btn" id="indTabJoin" onclick="switchIndustryTab('join')">Join As Partner</button>
+        </div>
+
+        <!-- Tab Panel 1: Active Partners (3x2 Grid from Screenshot) -->
+        <div class="ind-partners-grid" id="indPartnersGrid">
+          <!-- Card 1: Tata Steel -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #1B4332; color: #fff;">TS</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">Tata Steel</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">Corporate CSR</span>
+                  <span class="ipc-status-pill active">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Environment, Livelihood</p>
+              <p><strong>Support:</strong> ₹45L funding + mentorship</p>
+              <p><strong>Projects:</strong> 8 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('Tata Steel CSR: 8 active projects in Jamshedpur & Bokaro')">
+              View Partnership Details
+            </button>
+          </div>
+
+          <!-- Card 2: MECON Ltd. -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #1E40AF; color: #fff;">ML</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">MECON Ltd.</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">PSU</span>
+                  <span class="ipc-status-pill active">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Infrastructure, Engineering</p>
+              <p><strong>Support:</strong> Technical experts + equipment</p>
+              <p><strong>Projects:</strong> 5 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('MECON Ltd: Metallurgical lab testing support for university prototypes')">
+              View Partnership Details
+            </button>
+          </div>
+
+          <!-- Card 3: AgroTech Jharkhand -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #047857; color: #fff;">AT</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">AgroTech Jharkhand</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">Startup</span>
+                  <span class="ipc-status-pill active">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Agriculture, IoT</p>
+              <p><strong>Support:</strong> Technology partnership</p>
+              <p><strong>Projects:</strong> 3 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('AgroTech: Agri-drone field data API integration active')">
+              View Partnership Details
+            </button>
+          </div>
+
+          <!-- Card 4: Jharcraft -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #D97706; color: #fff;">JC</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">Jharcraft</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">Government MSME</span>
+                  <span class="ipc-status-pill active">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Livelihood, Handicraft</p>
+              <p><strong>Support:</strong> Market linkage + training</p>
+              <p><strong>Projects:</strong> 4 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('Jharcraft: Silk artisan e-commerce logistics integration')">
+              View Partnership Details
+            </button>
+          </div>
+
+          <!-- Card 5: HealthGrid India -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #DC2626; color: #fff;">HG</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">HealthGrid India</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">Startup</span>
+                  <span class="ipc-status-pill reviewing">Reviewing</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Healthcare, Digital</p>
+              <p><strong>Support:</strong> Platform + analytics tools</p>
+              <p><strong>Projects:</strong> 2 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('HealthGrid India: Tele-diagnostic SDK pending health dept audit')">
+              View Partnership Details
+            </button>
+          </div>
+
+          <!-- Card 6: HDFC Bank CSR -->
+          <div class="ind-partner-card">
+            <div class="ipc-top-row">
+              <div class="ipc-avatar" style="background: #B91C1C; color: #fff;">HB</div>
+              <div class="ipc-identity">
+                <h4 class="ipc-name">HDFC Bank CSR</h4>
+                <div class="ipc-type-row">
+                  <span class="ipc-type-label">Corporate CSR</span>
+                  <span class="ipc-status-pill active">Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="ipc-details">
+              <p><strong>Domain:</strong> Education, Livelihood</p>
+              <p><strong>Support:</strong> ₹28L education grants</p>
+              <p><strong>Projects:</strong> 6 active collaborations</p>
+            </div>
+            <button class="btn-partner-details" onclick="showToast('HDFC Bank CSR: Parivartan scholarship & STEM kits sponsored')">
+              View Partnership Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab Panel 2: Open Opportunities (Hidden initially) -->
+        <div class="ind-opportunities-panel" id="indOppsPanel" style="display: none;">
+          <div class="jic-card">
+            <h3 class="box-heading">Prototypes Seeking Corporate CSR / Industry Sponsorship</h3>
+            <p class="box-desc">Sponsor field trials, provide mentor office hours, or scale verified innovations.</p>
+            <div class="proto-list" style="margin-top: 14px;">
+              <div class="proto-item">
+                <div class="proto-text">
+                  <h4>Solar Low-Cost Arsenic Filter</h4>
+                  <p>BIT Mesra &bull; Sahibganj &bull; ₹2.4 Lakhs Required</p>
+                </div>
+                <button class="btn-primary-action btn-sm" onclick="showToast('CSR Pledge registered for Solar Arsenic Filter')">Sponsor Project</button>
+              </div>
+              <div class="proto-item">
+                <div class="proto-text">
+                  <h4>Offline Digital Classroom Box</h4>
+                  <p>IIT (ISM) Dhanbad &bull; Latehar &bull; ₹3.8 Lakhs Required</p>
+                </div>
+                <button class="btn-primary-action btn-sm" onclick="showToast('CSR Pledge registered for Offline Classroom Box')">Sponsor Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Panel 3: Join As Partner Form (Exact Match to Screenshot 3 & 4) -->
+        <div class="ind-join-panel" id="indJoinPanel" style="display: none;">
+          <div class="jic-card ind-register-card">
+            <div class="wizard-header">
+              <h2 class="wizard-title">Register Your Organization</h2>
+              <p class="wizard-subtitle">Join 64 organizations already supporting innovation in Jharkhand.</p>
+            </div>
+
+            <form id="industryRegisterForm" onsubmit="submitIndustryApplication(event)" class="wizard-form-body">
+              <div class="form-row two-cols">
+                <div class="form-group-block">
+                  <label for="indOrgName" class="wizard-label">ORGANIZATION NAME *</label>
+                  <input type="text" id="indOrgName" required class="wizard-input" placeholder="e.g. Tata Steel Ltd.">
+                </div>
+
+                <div class="form-group-block">
+                  <label for="indOrgType" class="wizard-label">TYPE *</label>
+                  <select id="indOrgType" required class="wizard-select">
+                    <option value="Startup">Startup</option>
+                    <option value="Corporate CSR">Corporate CSR</option>
+                    <option value="PSU">PSU</option>
+                    <option value="Government MSME">Government MSME</option>
+                    <option value="Foundation / NGO">Foundation / NGO</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Domains of Interest Checkboxes -->
+              <div class="form-group-block" style="margin-top: 14px;">
+                <label class="wizard-label">DOMAINS OF INTEREST</label>
+                <div class="checkbox-inline-row">
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Agriculture">
+                    <span>Agriculture</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Water">
+                    <span>Water</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Education">
+                    <span>Education</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Healthcare">
+                    <span>Healthcare</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Environment">
+                    <span>Environment</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Livelihood">
+                    <span>Livelihood</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Digital">
+                    <span>Digital</span>
+                  </label>
+                  <label class="ind-checkbox-label">
+                    <input type="checkbox" name="indDomain" value="Infrastructure">
+                    <span>Infrastructure</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Type of Support Offered (2 Columns with soft pill boxes) -->
+              <div class="form-group-block" style="margin-top: 16px;">
+                <label class="wizard-label">TYPE OF SUPPORT OFFERED</label>
+                <div class="support-boxes-grid">
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Financial Funding">
+                    <span>Financial Funding</span>
+                  </label>
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Technical Mentorship">
+                    <span>Technical Mentorship</span>
+                  </label>
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Technology / Tools">
+                    <span>Technology / Tools</span>
+                  </label>
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Market Linkage">
+                    <span>Market Linkage</span>
+                  </label>
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Infrastructure">
+                    <span>Infrastructure</span>
+                  </label>
+                  <label class="support-pill-box">
+                    <input type="checkbox" name="supportType" value="Human Resources">
+                    <span>Human Resources</span>
+                  </label>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button type="submit" class="btn-wizard-continue" style="width: 100%; justify-content: center; height: 44px;">
+                  Submit Partnership Application &rarr;
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 8: PROJECT TRACKING (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-project-tracking">
+        
+        <!-- Top 3 Status Cards (From Screenshot) -->
+        <div class="tracking-top-metrics-row">
+          <!-- Card 1: On Track -->
+          <div class="jic-card tracking-metric-card">
+            <div class="tm-status-head">
+              <span class="tm-dot on-track"></span>
+              <span class="tm-status-title">ON TRACK</span>
+            </div>
+            <div class="tm-big-num">218</div>
+            <div class="tm-bar-wrap">
+              <div class="tm-bar-fill on-track" style="width: 64%;"></div>
+            </div>
+            <div class="tm-sub">64% of active projects</div>
+          </div>
+
+          <!-- Card 2: At Risk -->
+          <div class="jic-card tracking-metric-card">
+            <div class="tm-status-head">
+              <span class="tm-dot at-risk"></span>
+              <span class="tm-status-title">AT RISK</span>
+            </div>
+            <div class="tm-big-num">87</div>
+            <div class="tm-bar-wrap">
+              <div class="tm-bar-fill at-risk" style="width: 25%;"></div>
+            </div>
+            <div class="tm-sub">25% of active projects</div>
+          </div>
+
+          <!-- Card 3: Delayed -->
+          <div class="jic-card tracking-metric-card">
+            <div class="tm-status-head">
+              <span class="tm-dot delayed"></span>
+              <span class="tm-status-title">DELAYED</span>
+            </div>
+            <div class="tm-big-num">37</div>
+            <div class="tm-bar-wrap">
+              <div class="tm-bar-fill delayed" style="width: 11%;"></div>
+            </div>
+            <div class="tm-sub">11% of active projects</div>
+          </div>
+        </div>
+
+        <!-- Section: Active Projects (From Screenshot) -->
+        <div class="tracking-section-wrap">
+          <h3 class="tracking-sec-title">Active Projects</h3>
+
+          <!-- Project 1: Water Quality IoT Monitoring — Bokaro -->
+          <div class="jic-card tracking-project-card">
+            <div class="tpc-header-row">
+              <div class="tpc-left">
+                <div class="item-code-row">
+                  <span class="item-id-code">JH-2024-1842</span>
+                  <span class="status-pill-neutral">Development</span>
+                </div>
+                <h4 class="tpc-title">Water Quality IoT Monitoring — Bokaro</h4>
+                <div class="tpc-meta-row">
+                  <span>🎓 BIT Mesra</span>
+                  <span>👥 5 members</span>
+                  <span>👤 Dr. Meenakshi Jha</span>
+                  <span>⏱ 52 days left</span>
+                </div>
+              </div>
+
+              <div class="tpc-right-pct">
+                <span class="tpc-num">42%</span>
+                <span class="tpc-pct-label">complete</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="tpc-progress-track">
+              <div class="tpc-progress-fill orange-green" style="width: 42%;"></div>
+            </div>
+
+            <!-- Lifecycle Timeline Stepper (From Screenshot) -->
+            <div class="lifecycle-timeline-box">
+              <div class="lt-title">LIFECYCLE TIMELINE</div>
+              <div class="lt-stepper-track">
+                <!-- 1 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">Challenge Submitted</span>
+                </div>
+                <div class="lt-line completed"></div>
+                <!-- 2 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">Validated by Admin</span>
+                </div>
+                <div class="lt-line completed"></div>
+                <!-- 3 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">AI Matched</span>
+                </div>
+                <div class="lt-line completed"></div>
+                <!-- 4 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">Team Formed (5 members)</span>
+                </div>
+                <div class="lt-line completed"></div>
+                <!-- 5 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">Proposal Approved</span>
+                </div>
+                <div class="lt-line completed"></div>
+                <!-- 6 -->
+                <div class="lt-step completed">
+                  <div class="lt-circle">✓</div>
+                  <span class="lt-name">Development Sprint 1</span>
+                </div>
+                <div class="lt-line active"></div>
+                <!-- 7 -->
+                <div class="lt-step active">
+                  <div class="lt-circle active">●</div>
+                  <span class="lt-name">Development Sprint 2</span>
+                </div>
+                <div class="lt-line"></div>
+                <!-- 8 -->
+                <div class="lt-step">
+                  <div class="lt-circle">○</div>
+                  <span class="lt-name">Field Testing</span>
+                </div>
+                <div class="lt-line"></div>
+                <!-- 9 -->
+                <div class="lt-step">
+                  <div class="lt-circle">○</div>
+                  <span class="lt-name">Deployment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Agri Market Price App — Khunti Tribal Farmers -->
+          <div class="jic-card tracking-project-card" style="margin-top: 16px;">
+            <div class="tpc-header-row">
+              <div class="tpc-left">
+                <div class="item-code-row">
+                  <span class="item-id-code">JH-2024-1831</span>
+                  <span class="status-pill-neutral">Testing</span>
+                </div>
+                <h4 class="tpc-title">Agri Market Price App — Khunti Tribal Farmers</h4>
+                <div class="tpc-meta-row">
+                  <span>🎓 NIT Jamshedpur</span>
+                  <span>👥 4 members</span>
+                  <span>👤 Prof. Ajay Singh</span>
+                  <span>⏱ 21 days left</span>
+                </div>
+              </div>
+
+              <div class="tpc-right-pct">
+                <span class="tpc-num">75%</span>
+                <span class="tpc-pct-label">complete</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="tpc-progress-track">
+              <div class="tpc-progress-fill orange-green" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Project 3: NH-33 Pothole Monitoring System -->
+          <div class="jic-card tracking-project-card" style="margin-top: 16px;">
+            <div class="tpc-header-row">
+              <div class="tpc-left">
+                <div class="item-code-row">
+                  <span class="item-id-code">JH-2024-1803</span>
+                  <span class="status-pill-accent">Deployed</span>
+                </div>
+                <h4 class="tpc-title">NH-33 Pothole Monitoring System</h4>
+                <div class="tpc-meta-row">
+                  <span>🎓 BIT Mesra</span>
+                  <span>👥 3 members</span>
+                  <span>👤 Dr. Rajan Verma</span>
+                </div>
+              </div>
+
+              <div class="tpc-right-pct">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="tpc-num">100%</span>
+                  <span class="check-circ-green">✓</span>
+                </div>
+                <span class="tpc-pct-label">complete</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar (Full Green) -->
+            <div class="tpc-progress-track">
+              <div class="tpc-progress-fill full-green" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Upcoming Milestones (Next 30 days) (From Screenshot) -->
+        <div class="tracking-section-wrap" style="margin-top: 24px;">
+          <h3 class="tracking-sec-title">Upcoming Milestones (Next 30 days)</h3>
+
+          <div class="jic-card milestone-table-card">
+            <div class="milestone-row-item">
+              <span class="ms-id">JH-2024-1842</span>
+              <span class="ms-desc">IoT Prototype Field Test — Bokaro Sector 4</span>
+              <span class="ms-date"><i class="fi fi-rr-calendar"></i> Nov 15, 2026</span>
+              <span class="ms-status-badge on-track">On Track</span>
+            </div>
+
+            <div class="milestone-row-item">
+              <span class="ms-id">JH-2024-1831</span>
+              <span class="ms-desc">Field testing with 100 farmers across 3 mandis</span>
+              <span class="ms-date"><i class="fi fi-rr-calendar"></i> Nov 20, 2026</span>
+              <span class="ms-status-badge on-track">On Track</span>
+            </div>
+
+            <div class="milestone-row-item">
+              <span class="ms-id">JH-2024-1837</span>
+              <span class="ms-desc">District pilot demonstration with Dumka DC</span>
+              <span class="ms-date"><i class="fi fi-rr-calendar"></i> Nov 28, 2026</span>
+              <span class="ms-status-badge at-risk">At Risk</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================================================================
+           VIEW 9: GOV. ANALYTICS (Exact Match to User's Screenshot)
+           ====================================================================== -->
+      <div class="app-view" id="view-gov-analytics">
+        
+        <!-- 4 Top Analytics Stat Cards (From Screenshot) -->
+        <div class="jic-stats-row gov-stats-row">
+          <div class="jic-stat-card">
+            <div class="stat-big-num">24/24</div>
+            <div class="stat-meta-label">Districts Active</div>
+            <div class="stat-growth-tag accent">100% coverage</div>
+          </div>
+
+          <div class="jic-stat-card">
+            <div class="stat-big-num">₹12.4 Cr</div>
+            <div class="stat-meta-label">Total Budget Utilized</div>
+            <div class="stat-growth-tag">of ₹20 Cr allocated</div>
+          </div>
+
+          <div class="jic-stat-card">
+            <div class="stat-big-num">84,200</div>
+            <div class="stat-meta-label">Citizen Engagement</div>
+            <div class="stat-growth-tag">registered users</div>
+          </div>
+
+          <div class="jic-stat-card">
+            <div class="stat-big-num">47 days</div>
+            <div class="stat-meta-label">Avg. Resolution Time</div>
+            <div class="stat-growth-tag accent">down from 180 days</div>
+          </div>
+        </div>
+
+        <!-- Main Analytics 2-Column Grid (From Screenshot) -->
+        <div class="jic-two-col-grid" style="margin-bottom: 24px;">
+          
+          <!-- Left Column: District Performance Map & Table -->
+          <div class="jic-card">
+            <div class="card-head-row">
+              <h3 class="card-title-text">District Performance Map</h3>
+              <div class="map-filter-pills">
+                <button class="map-pill active" id="mapPillChallenges" onclick="filterGovMap('challenges')">Challenges</button>
+                <button class="map-pill" id="mapPillDeployed" onclick="filterGovMap('deployed')">Deployed</button>
+                <button class="map-pill" id="mapPillScore" onclick="filterGovMap('score')">Score</button>
+              </div>
+            </div>
+
+            <!-- Visual District Map: Sleek Geographic Circle Nodes with Ranchi Hero Node -->
+            <div class="district-map-container" id="districtMapContainer">
+              <div class="bubble-map-canvas" id="bubbleMapCanvas">
+                <!-- SVG Network Connecting Lines -->
+                <svg class="map-network-svg" viewBox="0 0 840 400" preserveAspectRatio="none">
+                  <line x1="335" y1="235" x2="438" y2="198" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <line x1="438" y1="198" x2="508" y2="118" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <line x1="335" y1="235" x2="293" y2="123" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <line x1="335" y1="235" x2="279" y2="329" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <line x1="335" y1="235" x2="496" y2="296" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <line x1="293" y1="123" x2="403" y2="73" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="508" y1="118" x2="593" y2="93" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="593" y1="93" x2="663" y2="163" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="663" y1="163" x2="746" y2="196" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="293" y1="123" x2="159" y2="179" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="159" y1="179" x2="109" y2="79" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <line x1="159" y1="179" x2="139" y2="299" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3,3"/>
+                </svg>
+
+                <!-- 1. Palamu (NW) -->
+                <div class="map-bubble b-palamu" onclick="highlightDistrict('Palamu', 82, 12, 58)">
+                  <span class="bubble-name">Palamu</span>
+                  <span class="bubble-val">82</span>
+                </div>
+
+                <!-- 2. Latehar (W-Central) -->
+                <div class="map-bubble b-latehar" onclick="highlightDistrict('Latehar', 74, 9, 52)">
+                  <span class="bubble-name">Latehar</span>
+                  <span class="bubble-val">74</span>
+                </div>
+
+                <!-- 3. Simdega (SW) -->
+                <div class="map-bubble b-simdega" onclick="highlightDistrict('Simdega', 64, 8, 48)">
+                  <span class="bubble-name">Simdega</span>
+                  <span class="bubble-val">64</span>
+                </div>
+
+                <!-- 4. Hazaribagh (N-Central) -->
+                <div class="map-bubble b-hazaribagh" onclick="highlightDistrict('Hazaribagh', 167, 31, 68)">
+                  <span class="bubble-name">Hazaribagh</span>
+                  <span class="bubble-val">167</span>
+                </div>
+
+                <!-- 5. Giridih (North) -->
+                <div class="map-bubble b-giridih" onclick="highlightDistrict('Giridih', 118, 22, 60)">
+                  <span class="bubble-name">Giridih</span>
+                  <span class="bubble-val">118</span>
+                </div>
+
+                <!-- 6. Deoghar (NE) -->
+                <div class="map-bubble b-deoghar" onclick="highlightDistrict('Deoghar', 132, 26, 65)">
+                  <span class="bubble-name">Deoghar</span>
+                  <span class="bubble-val">132</span>
+                </div>
+
+                <!-- 7. Dumka (East-NE) -->
+                <div class="map-bubble b-dumka" onclick="highlightDistrict('Dumka', 143, 28, 64)">
+                  <span class="bubble-name">Dumka</span>
+                  <span class="bubble-val">143</span>
+                </div>
+
+                <!-- 8. Pakur (Far East) -->
+                <div class="map-bubble b-pakur" onclick="highlightDistrict('Pakur', 58, 6, 45)">
+                  <span class="bubble-name">Pakur</span>
+                  <span class="bubble-val">58</span>
+                </div>
+
+                <!-- 9. Dhanbad (East Mining) -->
+                <div class="map-bubble hero-tier b-dhanbad" onclick="highlightDistrict('Dhanbad', 287, 63, 78)">
+                  <span class="bubble-name">Dhanbad</span>
+                  <span class="bubble-val">287</span>
+                </div>
+
+                <!-- 10. Bokaro (Central East) -->
+                <div class="map-bubble hero-tier b-bokaro" onclick="highlightDistrict('Bokaro', 241, 54, 71)">
+                  <span class="bubble-name">Bokaro</span>
+                  <span class="bubble-val">241</span>
+                </div>
+
+                <!-- 11. East Singhbhum (SE) -->
+                <div class="map-bubble hero-tier b-eastsinghbhum" onclick="highlightDistrict('East Singhbhum', 198, 42, 85)">
+                  <span class="bubble-name">East S.</span>
+                  <span class="bubble-val">198</span>
+                </div>
+
+                <!-- 12. Khunti (South Central) -->
+                <div class="map-bubble b-khunti" onclick="highlightDistrict('Khunti', 96, 18, 62)">
+                  <span class="bubble-name">Khunti</span>
+                  <span class="bubble-val">96</span>
+                </div>
+
+                <!-- 13. RANCHI (STATE CAPITAL HERO NODE) -->
+                <div class="map-bubble hero-capital-bubble b-ranchi" onclick="highlightDistrict('Ranchi', 342, 87, 92)">
+                  <div class="capital-pulse-halo"></div>
+                  <span class="bubble-capital-star">★</span>
+                  <span class="bubble-name">Ranchi</span>
+                  <span class="bubble-val">342</span>
+                </div>
+              </div>
+
+              <!-- Map Legend Overlay -->
+              <div class="map-legend-row">
+                <span class="legend-item"><span class="leg-dot dot-low"></span> Low</span>
+                <span class="legend-item"><span class="leg-dot dot-med"></span> Medium</span>
+                <span class="legend-item"><span class="leg-dot dot-high"></span> High</span>
+                <span class="legend-item"><span class="leg-dot dot-vhigh"></span> Ranchi (Capital)</span>
+              </div>
+            </div>
+
+            <!-- District Performance Table (Exact Table from Screenshot) -->
+            <div class="gov-table-wrapper" style="margin-top: 18px;">
+              <table class="gov-district-table" id="govDistrictTable">
+                <thead>
+                  <tr>
+                    <th>DISTRICT</th>
+                    <th style="text-align: right;">CHALLENGES</th>
+                    <th style="text-align: right;">ACTIVE</th>
+                    <th style="text-align: right;">DEPLOYED</th>
+                    <th style="text-align: right; width: 140px;">SCORE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr onclick="highlightDistrict('Ranchi', 342, 87, 92)">
+                    <td><strong>Ranchi</strong></td>
+                    <td style="text-align: right;">342</td>
+                    <td style="text-align: right;">87</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">28</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 92%;"></div>
+                        </div>
+                        <span class="score-num">92</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr onclick="highlightDistrict('Dhanbad', 287, 63, 78)">
+                    <td><strong>Dhanbad</strong></td>
+                    <td style="text-align: right;">287</td>
+                    <td style="text-align: right;">63</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">19</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 78%;"></div>
+                        </div>
+                        <span class="score-num">78</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr onclick="highlightDistrict('Bokaro', 241, 54, 71)">
+                    <td><strong>Bokaro</strong></td>
+                    <td style="text-align: right;">241</td>
+                    <td style="text-align: right;">54</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">14</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 71%;"></div>
+                        </div>
+                        <span class="score-num">71</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr onclick="highlightDistrict('East Singhbhum', 198, 42, 85)">
+                    <td><strong>East Singhbhum</strong></td>
+                    <td style="text-align: right;">198</td>
+                    <td style="text-align: right;">42</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">22</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="score-num">85</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr onclick="highlightDistrict('Hazaribagh', 167, 31, 68)">
+                    <td><strong>Hazaribagh</strong></td>
+                    <td style="text-align: right;">167</td>
+                    <td style="text-align: right;">31</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">11</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 68%;"></div>
+                        </div>
+                        <span class="score-num">68</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr onclick="highlightDistrict('Dumka', 143, 28, 64)">
+                    <td><strong>Dumka</strong></td>
+                    <td style="text-align: right;">143</td>
+                    <td style="text-align: right;">28</td>
+                    <td style="text-align: right; color: var(--accent-success-dark); font-weight: 700;">8</td>
+                    <td style="text-align: right;">
+                      <div class="score-cell">
+                        <div class="score-bar-track">
+                          <div class="score-bar-fill" style="width: 64%;"></div>
+                        </div>
+                        <span class="score-num">64</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right Column: Monthly Activity, Domain Overview & Policy Alerts -->
+          <div class="jic-right-stack">
+            
+            <!-- Card 1: Monthly Activity Bar Chart (From Screenshot) -->
+            <div class="jic-card">
+              <div class="card-head-row">
+                <h3 class="card-title-text">Monthly Activity</h3>
+                <div class="chart-legend-wrap">
+                  <span class="chart-leg-item"><span class="leg-color-dark"></span> Submitted</span>
+                  <span class="chart-leg-item"><span class="leg-color-accent"></span> Resolved</span>
+                </div>
+              </div>
+
+              <div class="monthly-chart-box">
+                <div class="chart-col" title="June: 140 Submitted, 48 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 48px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 18px;"></div>
+                  </div>
+                  <span class="month-label">Jun</span>
+                </div>
+
+                <div class="chart-col" title="July: 180 Submitted, 62 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 62px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 24px;"></div>
+                  </div>
+                  <span class="month-label">Jul</span>
+                </div>
+
+                <div class="chart-col" title="August: 240 Submitted, 85 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 82px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 36px;"></div>
+                  </div>
+                  <span class="month-label">Aug</span>
+                </div>
+
+                <div class="chart-col" title="September: 210 Submitted, 78 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 74px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 32px;"></div>
+                  </div>
+                  <span class="month-label">Sep</span>
+                </div>
+
+                <div class="chart-col" title="October: 290 Submitted, 96 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 92px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 42px;"></div>
+                  </div>
+                  <span class="month-label">Oct</span>
+                </div>
+
+                <div class="chart-col" title="November: 340 Submitted, 124 Resolved">
+                  <div class="bar-stack">
+                    <div class="chart-bar bar-submitted" style="height: 104px;"></div>
+                    <div class="chart-bar bar-resolved" style="height: 52px;"></div>
+                  </div>
+                  <span class="month-label">Nov</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Domain Overview (Exact Values from Screenshot) -->
+            <div class="jic-card">
+              <h3 class="card-title-text" style="margin-bottom: 12px;">Domain Overview</h3>
+
+              <div class="domain-overview-list">
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Water &amp; Sanitation</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">22 deployed</span>
+                      <small class="ov-counts">134/523</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 76%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Education</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">18 deployed</span>
+                      <small class="ov-counts">87/412</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 64%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Agriculture</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">14 deployed</span>
+                      <small class="ov-counts">79/389</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 58%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Healthcare</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">11 deployed</span>
+                      <small class="ov-counts">63/334</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 52%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Environment</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">9 deployed</span>
+                      <small class="ov-counts">47/287</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 44%;"></div>
+                  </div>
+                </div>
+
+                <div class="domain-ov-item">
+                  <div class="ov-head">
+                    <span class="ov-name">Livelihood</span>
+                    <div class="ov-meta">
+                      <span class="ov-badge-deployed">8 deployed</span>
+                      <small class="ov-counts">38/241</small>
+                    </div>
+                  </div>
+                  <div class="dash-progress-bar">
+                    <div class="dash-progress-fill" style="width: 36%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: POLICY ALERTS (From Screenshot) -->
+            <div class="jic-card">
+              <div class="card-head-row">
+                <h3 class="card-title-text">POLICY ALERTS</h3>
+                <span class="status-pill-accent">3 Active Actions</span>
+              </div>
+
+              <div class="policy-alerts-list">
+                <div class="policy-alert-item" onclick="showToast('Dispatching Water Resource Taskforce to Ranchi Kanke')">
+                  <strong>Critical Water Alert &bull; Kanke, Ranchi</strong>
+                  <p>Arsenic levels exceeded BIS 10500 standard. Mobile electro-coagulation pilot dispatched.</p>
+                </div>
+
+                <div class="policy-alert-item" onclick="showToast('Allocating ₹15L Seed Grant to IIT ISM Classroom Box')">
+                  <strong>Retention Action &bull; Dumka Tribal Blocks</strong>
+                  <p>Class 8 dropout risk identified. 14 solar offline smart classroom boxes sanctioned under NEP fund.</p>
+                </div>
+
+                <div class="policy-alert-item" onclick="showToast('BCCL CSR Grant MoA Sent to Dhanbad District HQ')">
+                  <strong>Air Quality Advisory &bull; Jharia Coalfield</strong>
+                  <p>Particulate smog mitigation: Misting cannon phase 2 deployment approved with BCCL grant.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Problem Verification & University Routing Queue (Admin Workflow) -->
+        <div class="jic-card">
+          <div class="card-head-row">
+            <div>
+              <h3 class="box-heading">Department Verification &amp; University Routing Queue</h3>
+              <p class="box-desc">Verify authenticity of citizen complaints, adjust priority, and forward verified problem statements to partner universities.</p>
+            </div>
+          </div>
+
+          <div class="dash-tab-bar">
+            <button class="dash-tab-btn active" data-admin-tab="pending" id="adminTabPending">
+              Pending Problems (<span id="adminPendingCount">1</span>)
+            </button>
+            <button class="dash-tab-btn" data-admin-tab="approved" id="adminTabApproved">
+              Approved Problems (<span id="adminApprovedCount">5</span>)
+            </button>
+            <button class="dash-tab-btn" data-admin-tab="solved" id="adminTabSolved">
+              Solved Problems (<span id="adminSolvedCount">2</span>)
+            </button>
+          </div>
+
+          <div class="admin-challenges-grid" id="adminChallengesGrid">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================================================================
+           VIEW 10: IMPACT DASHBOARD & PUBLIC PORTAL
+           ====================================================================== -->
+      <div class="app-view" id="view-impact-dashboard">
+        <div class="jic-two-col-grid">
+          
+          <!-- Solved Challenges Showcase -->
+          <div class="jic-card">
+            <div class="card-tag-row">
+              <span class="pill-badge">Solved Problems (180 Total)</span>
+              <span class="status-pill-accent">Verified On-Ground</span>
+            </div>
+            <h3 class="box-heading">Featured Solved Challenges</h3>
+
+            <div class="solved-list">
+              <div class="solved-item">
+                <div class="solved-check-icon">✓</div>
+                <div class="solved-info">
+                  <h4>Solar Micro-Cold Storage for Vegetable Clusters</h4>
+                  <p>Deployed in Ormanjhi, Ranchi by <strong>Birsa Agricultural University</strong></p>
+                </div>
+                <span class="status-pill-accent">100% Resolved</span>
+              </div>
+
+              <div class="solved-item">
+                <div class="solved-check-icon">✓</div>
+                <div class="solved-info">
+                  <h4>Automated Lac Resin Grading Machine</h4>
+                  <p>Deployed in Chaibasa, West Singhbhum by <strong>NIT Jamshedpur</strong></p>
+                </div>
+                <span class="status-pill-accent">100% Resolved</span>
+              </div>
+
+              <div class="solved-item">
+                <div class="solved-check-icon">✓</div>
+                <div class="solved-info">
+                  <h4>Jharia Particulate Air Misting Cannon</h4>
+                  <p>Field tested by <strong>IIT (ISM) Dhanbad</strong> with BCCL CSR Grant</p>
+                </div>
+                <span class="status-pill-accent">100% Resolved</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Higher Education Institutions Leaderboard -->
+          <div class="jic-card">
+            <div class="card-tag-row">
+              <span class="pill-badge">Institutional Rankings</span>
+              <span class="status-pill-neutral">Live ABC Academic Credits</span>
+            </div>
+            <h3 class="box-heading">Higher Education Institutions Leaderboard</h3>
+
+            <div class="leaderboard-table">
+              <div class="lb-row lb-rank-1">
+                <div class="lb-rank">#1</div>
+                <div class="lb-meta">
+                  <strong>BIT Mesra, Ranchi</strong>
+                  <small>48 Problems Solved &bull; 14 Patents Filed</small>
+                </div>
+                <span class="lb-points">2,840 pts</span>
+              </div>
+
+              <div class="lb-row lb-rank-2">
+                <div class="lb-rank">#2</div>
+                <div class="lb-meta">
+                  <strong>IIT (ISM) Dhanbad</strong>
+                  <small>42 Problems Solved &bull; 18 Prototypes</small>
+                </div>
+                <span class="lb-points">2,610 pts</span>
+              </div>
+
+              <div class="lb-row lb-rank-3">
+                <div class="lb-rank">#3</div>
+                <div class="lb-meta">
+                  <strong>NIT Jamshedpur</strong>
+                  <small>36 Problems Solved &bull; 12 Deployments</small>
+                </div>
+                <span class="lb-points">2,250 pts</span>
+              </div>
+
+              <div class="lb-row">
+                <div class="lb-rank">#4</div>
+                <div class="lb-meta">
+                  <strong>Birsa Agricultural University (BAU)</strong>
+                  <small>28 Agri Problems Solved &bull; 8 Cold Chain Units</small>
+                </div>
+                <span class="lb-points">1,940 pts</span>
+              </div>
+
+              <div class="lb-row">
+                <div class="lb-rank">#5</div>
+                <div class="lb-meta">
+                  <strong>AIIMS Deoghar</strong>
+                  <small>26 Health Diagnostic Kits Deployed</small>
+                </div>
+                <span class="lb-points">1,820 pts</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification Popup -->
+  <div class="bobby-toast" id="bobbyToast">
+    <div class="toast-icon-wrap" id="toastIcon">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <span class="toast-message-text" id="toastText">Action completed successfully!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
