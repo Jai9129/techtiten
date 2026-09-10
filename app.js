@@ -4,6 +4,37 @@
  */
 
 /* ==========================================================================
+   -1. Theme Controller (Light Theme & Dark Theme with Sun/Moon Icon)
+   ========================================================================== */
+let currentTheme = localStorage.getItem('jic_theme') || 'light'; // Default to Light Mode as requested
+
+window.toggleTheme = function() {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  localStorage.setItem('jic_theme', currentTheme);
+  applyTheme(currentTheme);
+  showToast(`Switched to ${currentTheme === 'light' ? 'Light Theme ☀️' : 'Dark Theme 🌙'}`);
+};
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  if (theme === 'light') {
+    document.body.classList.add('light-theme');
+  } else {
+    document.body.classList.remove('light-theme');
+  }
+
+  const landingToggle = document.getElementById('landingThemeToggleBtn');
+  const appToggle = document.getElementById('appThemeToggleBtn');
+  const title = theme === 'light' ? 'Switch to Dark Mode (Moon)' : 'Switch to Light Mode (Sun)';
+  
+  if (landingToggle) landingToggle.setAttribute('title', title);
+  if (appToggle) appToggle.setAttribute('title', title);
+}
+
+// Immediately apply saved or default theme
+applyTheme(currentTheme);
+
+/* ==========================================================================
    0. Portal Gateway & Universal Authentication System (Citizen vs Government)
    ========================================================================== */
 let currentPortalContext = 'citizen'; // 'citizen' | 'gov'
